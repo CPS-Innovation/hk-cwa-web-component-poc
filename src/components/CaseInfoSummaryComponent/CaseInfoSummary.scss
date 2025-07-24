@@ -1,0 +1,46 @@
+@import "../../../node_modules/govuk-frontend/dist/govuk/all";
+
+.case-info-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  &:after {
+    content: none;
+    display: none;
+  }
+}
+
+.case-info-name {
+  font-family: "NewTransport", Arial, Helvetica, sans-serif;
+  margin-bottom: 0;
+}
+
+.case-info-links {
+  display: flex;
+  position: relative;
+  align-items: flex-end;
+  gap: 8px;
+  margin-bottom: 20px;
+  min-height: 75px;
+
+  &__item {
+    display: flex;
+    border-right: 1px solid #b1b4b6;
+    line-height: 24px;
+    padding-right: 8px;
+
+    &:first-child {
+      padding-right: 8px;
+    }
+
+    &:last-child {
+      border: 0;
+    }
+  }
+}
+
+.govuk-grid-row {
+  margin-left: 0;
+  margin-right: 0;
+}

@@ -1,0 +1,12 @@
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/notification-banner/notification-banner";
+
+@media (min-width: 40.0625em) {
+  .govuk-notification-banner {
+    margin-bottom: 0;
+  }
+}
+
+.banner-error {
+  background-color: #d4351c;
+  border: 5px solid #d4351c;
+}
