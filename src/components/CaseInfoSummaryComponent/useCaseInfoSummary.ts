@@ -23,16 +23,19 @@ export const useCaseInfoSummary = () => {
       console.log({ hookError: error });
       setIsLoading(false);
 
-      const event = new CustomEvent("cps-error", {
+      window.dispatchEvent(new CustomEvent('caseInfoSummary-isError', {
+        bubbles: true,
+        composed: true,
+      }));
+
+      window.dispatchEvent(new CustomEvent("cps-error", {
         detail: {
           type: "error",
           message: "There was an error fetching case info data"
         },
         bubbles: true,
         composed: true,
-      });
-
-      window.dispatchEvent(event);
+      }));
     }
   }
 
@@ -51,6 +54,13 @@ export const useCaseInfoSummary = () => {
 
     return deregisterEvents
   }, []);
+
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent(isLoading ? 'caseInfoSummary-isLoading' : 'caseInfoSummary-isLoaded', {
+      bubbles: true,
+      composed: true,
+    }));
+  }, [isLoading])
 
   return {
     data,

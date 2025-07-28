@@ -2,7 +2,7 @@ declare global {
   namespace React {
     namespace JSX {
       interface IntrinsicElements {
-        "case-info-summary-component": React.DetailedHTMLProps<
+        "case-info-summary": React.DetailedHTMLProps<
             React.HTMLAttributes<HTMLElement> & {
           caseInfo?: {
             id?: number;
