@@ -43,11 +43,15 @@ class BannerComponent extends HTMLElement {
     style.textContent = styles;
     this.shadowRoot!.appendChild(style);
 
-    const type = (this.getAttribute("type") as BannerType) ?? "success";
-    const header = this.getAttribute("header") ?? "Default Header";
-    const content = this.getAttribute("content") ?? "Default Content";
+    const type = (this.getAttribute("type") as BannerType);
+    const header = this.getAttribute("header");
+    const content = this.getAttribute("content");
 
-    this._root.render(<Banner type={type} header={header} content={content} />);
+    if (!type || !header || !content) {
+      this._root.render(null);
+    } else {
+      this._root.render(<Banner type={type} header={header} content={content}/>);
+    }
   }
 }
 
