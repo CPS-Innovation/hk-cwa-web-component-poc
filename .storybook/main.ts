@@ -15,6 +15,7 @@ const config: StorybookConfig = {
   "framework": {
     "name": "@storybook/react-vite",
     "options": {}
-  }
+  },
+  staticDirs: ['../mocks', '../public'],
 };
 export default config;
