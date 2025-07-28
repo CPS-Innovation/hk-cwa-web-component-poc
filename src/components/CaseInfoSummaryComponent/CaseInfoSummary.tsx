@@ -1,8 +1,12 @@
-import type { CaseInfoType } from "../../schemas/caseInfo";
+import { useCaseInfoSummary } from './useCaseInfoSummary';
 
-type Props = { caseInfo?: CaseInfoType };
+export const CaseInfoSummary = () => {
+  const { data: caseInfo, isLoading } = useCaseInfoSummary();
 
-export const CaseInfoSummary = ({ caseInfo }: Props) => {
+  if (isLoading) {
+    return <p>LOADING...</p>
+  }
+
   if (!caseInfo) {
     return null;
   }
