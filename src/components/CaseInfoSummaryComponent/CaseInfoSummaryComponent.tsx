@@ -17,9 +17,9 @@ class CaseInfoSummaryComponent extends HTMLElement {
   }
 }
 
-if (!window.customElements.get("case-info-summary-component")) {
+if (!window.customElements.get("case-info-summary")) {
   window.customElements.define(
-    "case-info-summary-component",
+    "case-info-summary",
     CaseInfoSummaryComponent
   );
 }

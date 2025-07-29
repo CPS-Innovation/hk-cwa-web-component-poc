@@ -1,18 +1,18 @@
 import { type PropsWithChildren } from "react";
 
-export type BannerType = "success" | "important" | "error";
+export type NotificationBannerType = "success" | "important" | "error";
 
-export type BannerProps = {
-  type: BannerType;
+export type NotificationBannerProps = {
+  type: NotificationBannerType;
   header: string;
   content?: string;
 };
 
-export const Banner = ({
+export const NotificationBanner = ({
   type = "success",
   header,
   content,
-}: PropsWithChildren<BannerProps>) => {
+}: PropsWithChildren<NotificationBannerProps>) => {
   const getBannerClass = () => {
     switch (type) {
       case "success":

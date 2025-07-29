@@ -2,7 +2,7 @@ declare global {
     namespace React {
         namespace JSX {
             interface IntrinsicElements {
-                "banner-component": React.DetailedHTMLProps<
+                "notification-banner": React.DetailedHTMLProps<
                     React.HTMLAttributes<HTMLElement> & {
                     type?: string;
                     header?: string;
