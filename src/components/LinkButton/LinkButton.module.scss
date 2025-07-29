@@ -9,7 +9,7 @@
   width: fit-content;
   color: #1d70b8;
   font-family: "NewTransport", "Arial", sans-serif;
-
+  
   &:hover:not(:disabled):not(:focus) {
     color: #fff;
     background-color: #1d70b8;
@@ -21,4 +21,9 @@
     box-shadow: 0 0.125rem 0 #0b0c0c;
     outline: 0.1875rem solid transparent;
   }
+}
+
+.red {
+  color: red !important;
+  background-color: red !important;
 }

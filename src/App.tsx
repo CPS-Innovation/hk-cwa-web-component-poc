@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { useRef } from "react";
 import "./App.css";
 import "./components/StatusTagComponent/StatusTagComponent";
 import "./components/BannerComponent/BannerComponent";
@@ -6,6 +7,9 @@ import "./components/CaseInfoSummaryComponent/CaseInfoSummaryComponent";
 import "./components/LinkButton/LinkButton"
 
 function App() {
+
+const guidanceBtnRef = useRef<HTMLButtonElement | null>(null);
+
   return (
     <div className="App">
       {/* <case-info-summary-component
@@ -19,7 +23,7 @@ function App() {
         }}
       /> */}
 
-      <status-tag status="Renamed" />
+      {/* <status-tag status="Renamed" /> */}
 {/*       
       <banner-component
         type="success"
@@ -27,7 +31,16 @@ function App() {
         content="Success Content"
       ></banner-component> */}
 
-      <link-button text="This is a text!!!" />
+      <link-button
+          type="submit"
+          data-test-id="dataTestId"
+          ref={guidanceBtnRef}
+          aria-label="ariaLabel"
+          aria-expanded="buttonOpen"
+          text="Delete"
+          type="submit"
+          />          
+        
     </div>
   );
 }

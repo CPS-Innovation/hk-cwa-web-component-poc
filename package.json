@@ -19,6 +19,7 @@
     "react-dom": "^19.1.0",
     "react-library": "*",
     "react-router-dom": "^7.7.0",
+    "vite-plugin-svgr": "^4.3.0",
     "zod": "^4.0.5"
   },
   "devDependencies": {

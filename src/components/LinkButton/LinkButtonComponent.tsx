@@ -1,10 +1,55 @@
+import React, { forwardRef } from "react";
+// import classes from  "./LinkButton.module.scss";
 
-type PropsType = {
-	text: string;
+type LinkButtonProps = {
+  id?: string;
+  children: React.ReactNode;
+  className?: string | any;
+  dataTestId?: string | any;
+  disabled?: boolean | any;
+  ariaLabel?: string | any;
+  ariaExpanded?: boolean | any;
+  type?: "button" | "submit" | "reset";
+  onClick: () => void;
+  onFocus?: () => void;
+  text: string
 };
 
-const LinkButtonComponent = ({ text }: PropsType) => {
-	return (<h1 id="h1-link-button-component" className="linkButton">{text}</h1>);
-};
-
-export { LinkButtonComponent };
+export const LinkButtonComponent = forwardRef<HTMLButtonElement | null, LinkButtonProps>(
+  (
+    {
+      children,
+      className,
+      dataTestId,
+      onClick,
+      onFocus,
+      id,
+      ariaLabel,
+      ariaExpanded,
+      disabled = false,
+      type,
+      text
+    },
+    ref
+  ) => {
+    const resolvedClassName = `linkButton`;
+    return (
+      <button
+        ref={ref}
+        aria-label={ariaLabel}
+        aria-expanded={ariaExpanded}
+        disabled={disabled}
+        id={id}
+        className={resolvedClassName}
+        onClick={()=>{
+          alert('2')
+        }}
+        data-testid={dataTestId}
+        type={type}
+        onFocus={onFocus}
+      >
+        {children}
+      </button>
+    );
+  }
+);

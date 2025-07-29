@@ -5,6 +5,8 @@ import path from "path";
 import fs from "fs";
 import { fileURLToPath } from 'node:url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
+import svgr from 'vite-plugin-svgr'
+
 const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
@@ -19,14 +21,21 @@ fs.readdirSync(componentDir).forEach(folder => {
   }
 });
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(), 
+    svgr({ 
+      svgrOptions: {
+        // svgr options
+      },
+    }),
+  ], 
   css: {
     modules: false,
     preprocessorOptions: {
       scss: {
         quietDeps: true
       }
-    }
+    },
   },
   build: {
     target: "esnext",
