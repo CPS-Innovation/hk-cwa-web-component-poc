@@ -3,6 +3,7 @@ import "./App.css";
 import "./components/StatusTagComponent/StatusTagComponent";
 import "./components/BannerComponent/BannerComponent";
 import "./components/CaseInfoSummaryComponent/CaseInfoSummaryComponent";
+import "./components/LinkButton/LinkButton"
 
 function App() {
   return (
@@ -17,13 +18,16 @@ function App() {
           unitName: "Hull TU",
         }}
       /> */}
-      {/* <status-tag status="Renamed"></status-tag>
-       */}
+
+      <status-tag status="Renamed" />
+{/*       
       <banner-component
         type="success"
         header="Success Header"
         content="Success Content"
-      ></banner-component>
+      ></banner-component> */}
+
+      <link-button text="This is a text!!!" />
     </div>
   );
 }

@@ -8,7 +8,7 @@ class BannerComponent extends HTMLElement {
 
   constructor() {
     super();
-    ``;
+
     this.attachShadow({ mode: "open" });
     this._root = ReactDOM.createRoot(this.shadowRoot!);
 
