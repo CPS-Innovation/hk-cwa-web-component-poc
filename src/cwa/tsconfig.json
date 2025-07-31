@@ -15,7 +15,9 @@
     "noUnusedParameters": true,
     "jsx": "react",
     "jsxFactory": "h",
-    "jsxFragmentFactory": "h.Fragment"
+    "jsxFragmentFactory": "h.Fragment",
+     "esModuleInterop": true,
+     "skipLibCheck": true
   },
   "include": [
     "src"
