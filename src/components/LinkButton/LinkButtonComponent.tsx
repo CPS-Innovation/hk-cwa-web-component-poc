@@ -10,7 +10,8 @@ type LinkButtonProps = {
   ariaLabel?: string | any;
   ariaExpanded?: boolean | any;
   type?: "button" | "submit" | "reset";
-  onClick: () => void;
+  onClickFn?: (a: any) => {};
+  onSetColorFn?: () => {} | undefined;
   onFocus?: () => void;
   text: string
 };
@@ -21,7 +22,8 @@ export const LinkButtonComponent = forwardRef<HTMLButtonElement | null, LinkButt
       children,
       className,
       dataTestId,
-      onClick,
+      onClickFn,
+      onSetColorFn,
       onFocus,
       id,
       ariaLabel,
@@ -33,6 +35,7 @@ export const LinkButtonComponent = forwardRef<HTMLButtonElement | null, LinkButt
     ref
   ) => {
     const resolvedClassName = `linkButton`;
+    const setColorFnValue = onSetColorFn();
     return (
       <button
         ref={ref}
@@ -41,13 +44,13 @@ export const LinkButtonComponent = forwardRef<HTMLButtonElement | null, LinkButt
         disabled={disabled}
         id={id}
         className={resolvedClassName}
-        onClick={()=>{
-          alert('2')
-        }}
+        onClick={()=>alert(onClickFn('0'))}
         data-testid={dataTestId}
         type={type}
         onFocus={onFocus}
+        style={{'color': setColorFnValue}} 
       >
+        {setColorFnValue?.toString()}
         {children}
       </button>
     );

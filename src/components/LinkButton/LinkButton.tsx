@@ -1,5 +1,6 @@
+/// <reference types="vite-plugin-svgr/client" />
 import ReactDOM from "react-dom/client";
-import HelpIcon from "../svgs/help.svg?react";
+import DeleteIcon from "../svgs/deleteIcon.svg?react";	
 
 import { LinkButtonComponent } from "./LinkButtonComponent";
 import styles from "./LinkButton.module.scss?inline";
@@ -23,7 +24,12 @@ class LinkButton extends HTMLElement {
 		const guidanceBtnRef = this.getAttribute(
 			"ref"
 		) as Ref<HTMLButtonElement | null>;
+
 		const className = this.getAttribute("className") as string;
+		// const onClickFn = this.getAttribute('onClick') as void;
+
+		const fn = (a?: string):any => {return 'red'};
+		const setColorFn = () => { return 'green'}
 
 		const root = ReactDOM.createRoot(this.shadowRoot!);
 		root.render(
@@ -35,13 +41,13 @@ class LinkButton extends HTMLElement {
 				ariaLabel={ariaLabel}
 				ariaExpanded={ariaExpanded}
 				className={`${styles}.${className}`}
-				onClick={() => {
-					// alert('1')
+				onClickFn={fn}
+				onSetColorFn={setColorFn}
 					// setButtonOpen((buttonOpen) => !buttonOpen);
-				}}
+
 			>
-				<HelpIcon className={"classes.helpIcon"} />
-				<h3>children of linkbutton</h3>
+				<DeleteIcon className={"classes.helpIcon"} />
+					{textContent}
 			</LinkButtonComponent>
 		);
 	}

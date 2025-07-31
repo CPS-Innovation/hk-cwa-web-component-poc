@@ -4,15 +4,19 @@ import "./App.css";
 import "./components/StatusTagComponent/StatusTagComponent";
 import "./components/BannerComponent/BannerComponent";
 import "./components/CaseInfoSummaryComponent/CaseInfoSummaryComponent";
-import "./components/LinkButton/LinkButton"
+import "./components/LinkButton/LinkButton";
 
 function App() {
-
-const guidanceBtnRef = useRef<HTMLButtonElement | null>(null);
-
-  return (
-    <div className="App">
-      {/* <case-info-summary-component
+	const guidanceBtnRef = useRef<HTMLButtonElement | null>(null);
+	const fn = () => {
+		return 100;
+	};
+	const setColorFn = () => {
+		return "red";
+	};
+	return (
+		<div className="App">
+			{/* <case-info-summary-component
         data={{
           id: 2161796,
           urn: "16XL9132025",
@@ -23,26 +27,26 @@ const guidanceBtnRef = useRef<HTMLButtonElement | null>(null);
         }}
       /> */}
 
-      {/* <status-tag status="Renamed" /> */}
-{/*       
+			{/* <status-tag status="Renamed" /> */}
+			{/*       
       <banner-component
         type="success"
         header="Success Header"
         content="Success Content"
       ></banner-component> */}
 
-      <link-button
-          type="submit"
-          data-test-id="dataTestId"
-          ref={guidanceBtnRef}
-          aria-label="ariaLabel"
-          aria-expanded="buttonOpen"
-          text="Delete"
-          type="submit"
-          />          
-        
-    </div>
-  );
+			<link-button
+				data-test-id="dataTestId"
+				ref={guidanceBtnRef}
+				aria-label="ariaLabel"
+				aria-expanded="buttonOpen"
+				text="Delete"
+				type="submit"
+				// onClick={fn}
+				setColorFn={fn}
+			/>
+		</div>
+	);
 }
 
 export default App;
