@@ -13,6 +13,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@stencil/core": "^4.36.2",
     "axios": "^1.11.0",
     "govuk-frontend": "^5.11.0",
     "react": "^19.1.0",

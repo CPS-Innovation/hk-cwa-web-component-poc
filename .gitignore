@@ -25,3 +25,10 @@ dist-ssr
 
 *storybook.log
 storybook-static
+
+src/cwa/.stencil/
+src/cwa/.idea/
+src/cwa/.vscode/
+src/cwa/.sass-cache/
+src/cwa/.versions/
+src/cwa/node_modules/
