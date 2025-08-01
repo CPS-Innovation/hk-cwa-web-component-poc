@@ -4,9 +4,9 @@
   align-items: center;
 }
 
-div{
-    align-items: center;
+div {
+  align-items: center;
   justify-content: center;
   background-color: green;
-  color: white
+  color: white;
 }

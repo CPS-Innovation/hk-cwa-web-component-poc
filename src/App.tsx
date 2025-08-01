@@ -5,6 +5,8 @@ import "./components/StatusTagComponent/StatusTagComponent";
 import "./components/BannerComponent/BannerComponent";
 import "./components/CaseInfoSummaryComponent/CaseInfoSummaryComponent";
 import "./components/LinkButton/LinkButton";
+import "./cwa/dist/components/my-component.js"
+
 
 function App() {
 	const guidanceBtnRef = useRef<HTMLButtonElement | null>(null);
@@ -45,6 +47,10 @@ function App() {
 				// onClick={fn}
 				setColorFn={fn}
 			/>
+
+
+ 			<my-component id="my-component" first="Rafalek" middle="'Don't call me a framework'" last="JS" />
+
 		</div>
 	);
 }
