@@ -5,7 +5,8 @@ import "./components/StatusTagComponent/StatusTagComponent";
 import "./components/BannerComponent/BannerComponent";
 import "./components/CaseInfoSummaryComponent/CaseInfoSummaryComponent";
 import "./components/LinkButton/LinkButton";
-import "./cwa/dist/components/my-component.js"
+import "./cwa/dist/components/my-component.js" // npm run build to be run in cwa folder
+																							// file is deleted from /dist folder when task npm run dev is being run
 
 
 function App() {
@@ -13,9 +14,9 @@ function App() {
 	const fn = () => {
 		return 100;
 	};
-	const setColorFn = () => {
-		return "red";
-	};
+
+	const colorFn = (color: string)=> console.log('color', color);
+	
 	return (
 		<div className="App">
 			{/* <case-info-summary-component
@@ -48,8 +49,7 @@ function App() {
 				setColorFn={fn}
 			/>
 
-
- 			<my-component id="my-component" first="Rafalek" middle="'Don't call me a framework'" last="JS" />
+ 			<my-component id="my-component" first="Rafalek" colorFn={colorFn} />
 
 		</div>
 	);

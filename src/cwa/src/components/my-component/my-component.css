@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+button {
+  height: 2em;
+  width: 4em;
+}
+
 div {
   align-items: center;
   justify-content: center;

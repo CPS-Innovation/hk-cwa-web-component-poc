@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-// import { format } from '../../utils/utils';
+import { format } from '../../utils/utils';
 
 @Component({
   tag: 'my-component',
@@ -22,14 +22,23 @@ export class MyComponent {
    */
   @Prop() last: string;
 
-  // private getText(): string {
-  //   return format(this.first, this.middle, this.last);
-  // }
+  @Prop() colorFn?: (a: string) => any;
+
+  private handleClick() {
+    if (this.colorFn) {
+      this.colorFn('rediosh');
+    }
+  }
+
+  private getText(): string {
+    return format(`I am a ${this.first}.js component - getText() inner function`);  
+  }
 
   render() {
     return (
       <div class={'container'}>
-        <p>I am a Stencil.js component ${this.first}</p>
+        <button onClick={() => this.handleClick()}>button</button>
+        <p>{this.getText()}</p>
       </div>
     );
   }
