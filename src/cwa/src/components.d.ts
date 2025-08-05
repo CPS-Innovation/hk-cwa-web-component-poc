@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MyComponent {
-        "colorFn"?: (a: string) => any;
+        "colorFn"?: (a: string) => void;
         /**
           * The first name
          */
@@ -35,7 +35,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface MyComponent {
-        "colorFn"?: (a: string) => any;
+        "colorFn"?: (a: string) => void;
         /**
           * The first name
          */

@@ -22,16 +22,16 @@ export class MyComponent {
    */
   @Prop() last: string;
 
-  @Prop() colorFn?: (a: string) => any;
+  @Prop() colorFn?: (a: string) => void;
 
   private handleClick() {
     if (this.colorFn) {
-      this.colorFn('rediosh');
+      this.colorFn('red');
     }
   }
 
   private getText(): string {
-    return format(`I am a ${this.first}.js component - getText() inner function`);  
+    return format(`I am a ${this.first}.js component - getText() I am an inner function`);
   }
 
   render() {

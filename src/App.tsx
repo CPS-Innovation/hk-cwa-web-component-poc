@@ -6,7 +6,7 @@ import "./components/BannerComponent/BannerComponent";
 import "./components/CaseInfoSummaryComponent/CaseInfoSummaryComponent";
 import "./components/LinkButton/LinkButton";
 import "./cwa/dist/components/my-component.js" // npm run build to be run in cwa folder
-																							// file is deleted from /dist folder when task npm run dev is being run
+																						// file is deleted from /dist folder when task npm run dev is being run
 
 
 function App() {
@@ -45,11 +45,10 @@ function App() {
 				aria-expanded="buttonOpen"
 				text="Delete"
 				type="submit"
-				// onClick={fn}
 				setColorFn={fn}
 			/>
 
- 			<my-component id="my-component" first="Rafalek" colorFn={colorFn} />
+ 			<my-component id="my-component" first="Stencil" colorFn={colorFn} />
 
 		</div>
 	);
