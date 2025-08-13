@@ -6,6 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface CpsKeyDetails {
+        "name": string;
+    }
     interface MyComponent {
         "colorFn"?: (a: string) => void;
         /**
@@ -23,6 +26,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLCpsKeyDetailsElement extends Components.CpsKeyDetails, HTMLStencilElement {
+    }
+    var HTMLCpsKeyDetailsElement: {
+        prototype: HTMLCpsKeyDetailsElement;
+        new (): HTMLCpsKeyDetailsElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -30,10 +39,14 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "cps-key-details": HTMLCpsKeyDetailsElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface CpsKeyDetails {
+        "name"?: string;
+    }
     interface MyComponent {
         "colorFn"?: (a: string) => void;
         /**
@@ -50,6 +63,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "cps-key-details": CpsKeyDetails;
         "my-component": MyComponent;
     }
 }
@@ -57,6 +71,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "cps-key-details": LocalJSX.CpsKeyDetails & JSXBase.HTMLAttributes<HTMLCpsKeyDetailsElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

@@ -35,7 +35,7 @@ export const LinkButtonComponent = forwardRef<HTMLButtonElement | null, LinkButt
     ref
   ) => {
     const resolvedClassName = `linkButton`;
-    const setColorFnValue = onSetColorFn();
+    const setColorFnValue = onSetColorFn ? onSetColorFn() as unknown : '';
     return (
       <button
         ref={ref}
@@ -44,13 +44,13 @@ export const LinkButtonComponent = forwardRef<HTMLButtonElement | null, LinkButt
         disabled={disabled}
         id={id}
         className={resolvedClassName}
-        onClick={()=>alert(onClickFn('0'))}
+        onClick={()=>alert('fdf')}
         data-testid={dataTestId}
         type={type}
         onFocus={onFocus}
-        style={{'color': setColorFnValue}} 
+        // style={'color: setColorFnValue'} 
       >
-        {setColorFnValue?.toString()}
+        {/* {setColorFnValue?.toString()} */}
         {children}
       </button>
     );

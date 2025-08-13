@@ -5,9 +5,13 @@ import "./components/StatusTagComponent/StatusTagComponent";
 import "./components/BannerComponent/BannerComponent";
 import "./components/CaseInfoSummaryComponent/CaseInfoSummaryComponent";
 import "./components/LinkButton/LinkButton";
-import "./cwa/dist/components/my-component.js" // npm run build to be run in cwa folder
-																						// file is deleted from /dist folder when task npm run dev is being run
 
+// import  "buttoncomponent" from "../node_modules/buttoncomponent";
+
+import "./cwa/dist/components/my-component.js"; // npm run build to be run in cwa folder
+import "./cwa/dist/components/cps-accordion.js";
+// import { Accordion } from "./cwa/accordion/Accordion.js";
+// file is deleted from /dist folder when task npm run dev is being run
 
 function App() {
 	const guidanceBtnRef = useRef<HTMLButtonElement | null>(null);
@@ -15,8 +19,8 @@ function App() {
 		return 100;
 	};
 
-	const colorFn = (color: string)=> console.log('color', color);
-	
+	const colorFn = (color: string) => console.log("color", color);
+
 	return (
 		<div className="App">
 			{/* <case-info-summary-component
@@ -37,7 +41,7 @@ function App() {
         header="Success Header"
         content="Success Content"
       ></banner-component> */}
-
+{/* 
 			<link-button
 				data-test-id="dataTestId"
 				ref={guidanceBtnRef}
@@ -46,10 +50,11 @@ function App() {
 				text="Delete"
 				type="submit"
 				setColorFn={fn}
-			/>
-
- 			<my-component id="my-component" first="Stencil" colorFn={colorFn} />
-
+			/> */}
+			{/* <hr /> */}
+			{/* <mod  id="my-component" first="Stencil" colorFn={colorFn}>a </mod> */}
+			{/* <my-component id="buttoncomponent" first="Stencil" colorFn={colorFn} /> */}
+			
 		</div>
 	);
 }

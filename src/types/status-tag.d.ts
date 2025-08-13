@@ -11,3 +11,6 @@ declare global {
   }
 }
 export {};
+
+
+// declare module "*.module.css";

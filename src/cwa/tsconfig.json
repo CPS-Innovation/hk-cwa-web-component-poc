@@ -21,7 +21,7 @@
   },
   "include": [
     "src"
-  ],
+, "keydetails"  ],
   "exclude": [
     "node_modules"
   ]
