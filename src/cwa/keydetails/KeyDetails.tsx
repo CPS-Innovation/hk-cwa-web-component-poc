@@ -1,15 +1,18 @@
+/// <reference types="vite/client" />
+import { h } from '@stencil/core';
+import React from 'react';
 import {
   CommonDateTimeFormats,
   formatDate,
   getAgeFromIsoDate,
 } from "../src/app/common/utils/dates";
-import { Tag } from "../src/app/common/components";
+import { Tag } from "../src/app/common/components/";
 import {
   CaseDetails,
   Defendant,
   DefendantDetails,
-} from "../../domain/gateway/CaseDetails";
-import { LinkButton } from "../../../../../app/common/presentation/components/LinkButton";
+} from "../src/app/common/types/CaseDetails";
+import { LinkButton } from "../src/app/common/components/LinkButton";
 import classes from "./index.module.scss";
 
 export const KeyDetails: React.FC<{
@@ -64,14 +67,14 @@ export const KeyDetails: React.FC<{
     return (
       <>
         DOB:{" "}
-        <span className={classes.dobValue}>
+        <span class={classes.dobValue}>
           {formatDate(
             caseDetails.leadDefendantDetails.dob,
             CommonDateTimeFormats.ShortDateTextMonth
           )}
         </span>
         , Age:{" "}
-        <span className={classes.ageValue}>
+        <span class={classes.ageValue}>
           {getAgeFromIsoDate(caseDetails.leadDefendantDetails.dob)}
         </span>
       </>
@@ -90,7 +93,7 @@ export const KeyDetails: React.FC<{
   const defendantsList = getOrderedDefendantsList(caseDetails);
 
   return (
-    <div className={`${classes.keyDetails}`} data-testid="key-details">
+    <div class={`${classes.keyDetails}`} data-testid="key-details">
       {
         <>
           {getDefendantNameText(
@@ -98,7 +101,7 @@ export const KeyDetails: React.FC<{
             defendantsList
           ) && (
             <h1
-              className={`govuk-heading-m ${classes.defendantName}`}
+              class={`govuk-heading-m ${classes.defendantName}`}
               data-testid="defendant-name"
             >
               {getDefendantNameText(
@@ -108,14 +111,14 @@ export const KeyDetails: React.FC<{
             </h1>
           )}
           <h2
-            className={`govuk-heading-s ${classes.uniqueReferenceNumber}`}
+            class={`govuk-heading-s ${classes.uniqueReferenceNumber}`}
             data-testid="txt-case-urn"
           >
             {caseDetails.uniqueReferenceNumber}
           </h2>
           {getDOBText() && (
             <h2
-              className={`govuk-heading-s ${classes.defendantDOB}`}
+              class={`govuk-heading-s ${classes.defendantDOB}`}
               data-testid="txt-defendant-DOB"
             >
               {getDOBText()}

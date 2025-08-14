@@ -1,0 +1,24 @@
+.linkButton {
+  margin: 0.125rem;
+  display: inline;
+  background: transparent;
+  border-width: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 1.187rem;
+  width: fit-content;
+  color: #1d70b8;
+  font-family: "NewTransport", "Arial", sans-serif;
+
+  &:hover:not(:disabled):not(:focus) {
+    color: #fff;
+    background-color: #1d70b8;
+  }
+
+  &:focus {
+    color: #0b0c0c;
+    background-color: #ffdd00;
+    box-shadow: 0 0.125rem 0 #0b0c0c;
+    outline: 0.1875rem solid transparent;
+  }
+}

@@ -1,11 +1,15 @@
-import { Config } from '@stencil/core';
-
+import type { Config } from '@stencil/core'; 
+import  image  from '@rollup/plugin-image'
 export const config: Config = {
+  
   namespace: 'cwa',
+  plugins: [
+    image()
+  ],
   outputTargets: [
     {
       type: 'dist',
-      esmLoaderPath: '../loader',
+      esmLoaderPath: '../loader',      
     },
     {
       type: 'dist-custom-elements',
@@ -21,6 +25,6 @@ export const config: Config = {
     },
   ],
   testing: {
-    browserHeadless: "shell",
+    browserHeadless: 'shell',
   },
 };

@@ -7,6 +7,9 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface CpsKeyDetails {
+        /**
+          * @default 'Key Details'
+         */
         "name": string;
     }
     interface MyComponent {
@@ -45,6 +48,9 @@ declare global {
 }
 declare namespace LocalJSX {
     interface CpsKeyDetails {
+        /**
+          * @default 'Key Details'
+         */
         "name"?: string;
     }
     interface MyComponent {
