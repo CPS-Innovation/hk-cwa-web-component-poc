@@ -1,9 +1,9 @@
 import * as GDS from "govuk-react-jsx";
+import React from "react";
 import { TagColor } from "../types/TagColor";
 import { h } from '@stencil/core'
 
 export type TagProps = {
-  children: React.ReactNode;
   gdsTagColour: TagColor;
   className?: string;
 };

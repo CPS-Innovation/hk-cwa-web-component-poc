@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { h } from '@stencil/core'
-import classes from "./LinkButton.module.scss";
+import "./LinkButton.module.css";
 
 type LinkButtonProps = {
   id?: string;
@@ -11,7 +11,7 @@ type LinkButtonProps = {
   ariaLabel?: string;
   ariaExpanded?: boolean;
   type?: "button" | "submit" | "reset";
-  onClick: () => void;
+  onClick: () => void;  
   onFocus?: () => void;
 };
 
@@ -31,10 +31,10 @@ export const LinkButton = forwardRef<HTMLButtonElement | null, LinkButtonProps>(
     },
     ref
   ) => {
-    const resolvedClassName = `${classes.linkButton} ${className}`;
+    const resolvedClassName = `${"linkButton"} ${className}`;
     return (
       <button
-        // ref={ref}
+        // ref={ref}  
         aria-label={ariaLabel}
         aria-expanded={ariaExpanded}
         disabled={disabled}

@@ -1,15 +1,19 @@
-import type { Config } from '@stencil/core'; 
-import  image  from '@rollup/plugin-image'
+import type { Config } from '@stencil/core';
+import image from '@rollup/plugin-image';
+import { sass } from '@stencil/sass';
 export const config: Config = {
-  
   namespace: 'cwa',
   plugins: [
-    image()
+    image(),
+    sass({
+      quietDeps: true,
+      silenceDeprecations: ['mixed-decls', 'slash-div', 'import'],
+    }),
   ],
   outputTargets: [
     {
       type: 'dist',
-      esmLoaderPath: '../loader',      
+      esmLoaderPath: '../loader',
     },
     {
       type: 'dist-custom-elements',
