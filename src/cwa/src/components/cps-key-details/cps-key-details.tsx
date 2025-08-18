@@ -1,27 +1,34 @@
 import { KeyDetails } from '../../app/common/components/keydetails/KeyDetails';
 import { Component, Prop, State, h } from '@stencil/core';
+// import { TestComponent } from '../../app/common/components/keydetails/Test';
 
 @Component({
   tag: 'cps-key-details',
   styleUrl: 'cps-key-details.css',
-  assetsDirs: ['../../../../node_modules/govuk-frontend/govuk/assets/images/'],
+  // assetsDirs: ['../../../../node_modules/govuk-frontend/govuk/assets/images/'],
   shadow: true,
 })
+
 export class CPSKeyDetails {
-  @Prop() name: string = 'Key Details';
+  @Prop() name: string = 'Key Details page';
   @State() times: number = 100;
+  constructor() {
+    this.times += 100;
+    console.log('consructor');
+  }
 
   render() {
     return (
       <div>
         this is {this.name} {this.times} page
+        {/* <TestComponent /> */}
         <KeyDetails
-          handleOpenPdf={() => {
-            // handleOpenPdf({
-            //   documentId: 1234234,// dacDocumentId,
-            //   mode: "read",
-            // });
-          }}
+          // handleOpenPdf={() => {
+          //   // handleOpenPdf({
+          //   //   documentId: 1234234,// dacDocumentId,
+          //   //   mode: "read",
+          //   // });
+          // }}
           caseDetails={{
             id: 2160797,
             uniqueReferenceNumber: '54KR7689125',
@@ -35,15 +42,14 @@ export class CPSKeyDetails {
               surname: 'ZUCCARINI',
               organisationName: 'ZUCCARINI',
               dob: '2008-11-01',
-              // "age": "16",
               youth: true,
               type: 'Person',
             },
             headlineCharge: {
               charge: null,
               date: null,
-              // "earlyDate": null,
-              // "lateDate": null,
+              // earlyDate: null,
+              // lateDate": null,
               nextHearingDate: null,
             },
             defendants: [
@@ -108,50 +114,12 @@ export class CPSKeyDetails {
                 victim: true,
               },
             ],
-              // "preChargeDecisionRequests": [
-              //     {
-              //         "versionId": 0,
-              //         "caseOutline": [
-              //             {
-              //                 "heading": "Summary of Key Evidence",
-              //                 "text": "This is a test for CM01",
-              //                 "textWithCmsMarkup": "This is a test for CM01"
-              //             }
-              //         ],
-              //         "comments": {
-              //             "text": null,
-              //             "textWithCmsMarkup": null
-              //         },
-              //         "suspects": [
-              //             {
-              //                 "surname": "ZUCCARINI",
-              //                 "firstNames": "Carmine",
-              //                 "dob": null,
-              //                 "bailConditions": null,
-              //                 "bailDate": null,
-              //                 "remandStatus": null,
-              //                 "proposedCharges": [
-              //                     {
-              //                         "charge": "PL96002\u00A0Assault",
-              //                         "earlyDate": "2024-11-25",
-              //                         "lateDate": null,
-              //                         "location": "20 Newtons Road,\u00A0Newton,\u00A0Surrey,\u00A0SM4 4DN,\u00A0UK",
-              //                         "category": "SUM"
-              //                     }
-              //                 ]
-              //             }
-              //         ],
-              //         "id": 141956,
-              //         "decisionRequiredBy": "2025-01-26",
-              //         "decisionRequested": "2025-01-16",
-              //         "presentationFlags": null
-              //     }
-              // ]
           }}
-          isMultipleDefendantsOrCharges={true}
-          dacDocumentId={'12434'}
+
+          isMultipleDefendantsOrCharges={false}
+          dacDocumentId={'1234234'}
         >
-          test
+          cps-key-details web component
         </KeyDetails>
       </div>
     );
