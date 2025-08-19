@@ -4,7 +4,7 @@ import "./LinkButton.module.css";
 
 type LinkButtonProps = {
   id?: string;
-  children: React.ReactNode;
+  children: any;
   className?: string;
   dataTestId?: string;
   disabled?: boolean;

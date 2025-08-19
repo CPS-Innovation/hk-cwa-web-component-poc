@@ -53,7 +53,8 @@ function App() {
 			/> */}
 			{/* <hr /> */}
 			{/* <mod  id="my-component" first="Stencil" colorFn={colorFn}>a </mod> */}
-			{/* <my-component id="buttoncomponent" first="Stencil" colorFn={colorFn} /> */}
+		 
+			<cps-key-deails>fdsf</cps-key-deails>
 			
 		</div>
 	);
