@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 import { h } from '@stencil/core';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CommonDateTimeFormats, formatDate, getAgeFromIsoDate } from '../../utils/dates';
 import { Tag } from '../../../common/components/Tag';
 import { CaseDetails, Defendant, DefendantDetails } from '../../types/CaseDetails';
@@ -13,10 +13,10 @@ export const KeyDetails: React.FC<{
   handleOpenPdf?: () => void;
   dacDocumentId?: string;
 }> = ({ caseDetails, isMultipleDefendantsOrCharges, dacDocumentId }) => {
-  // console.log('caseDetails: ', JSON.stringify(caseDetails));
-  const getOrderedDefendantsList = (caseDetails: CaseDetails) => {
-    const { defendants } = caseDetails;
-    defendants.sort((a, b) => a.defendantDetails.listOrder - b.defendantDetails.listOrder);
+
+    const getOrderedDefendantsList = (caseDetails: CaseDetails) => {    
+    const  defendants = caseDetails?.defendants;
+    defendants?.sort((a, b) => a.defendantDetails.listOrder - b.defendantDetails.listOrder);
     return defendants;
   };
 
@@ -45,8 +45,8 @@ export const KeyDetails: React.FC<{
     }
     return (
       <>
-        DOB: <span class={'dobValue'}>{formatDate(caseDetails.leadDefendantDetails.dob, CommonDateTimeFormats.ShortDateTextMonth)}</span>, Age:{' '}
-        <span class={'ageValue'}>{getAgeFromIsoDate(caseDetails.leadDefendantDetails.dob)}</span>
+        DOB: <span class={'dobValue'}>{formatDate(caseDetails?.leadDefendantDetails.dob, CommonDateTimeFormats.ShortDateTextMonth)}</span>, Age:{' '}
+        <span class={'ageValue'}>{getAgeFromIsoDate(caseDetails?.leadDefendantDetails.dob)}</span>
       </>
     );
   };
@@ -58,7 +58,9 @@ export const KeyDetails: React.FC<{
 
   const defendantsList = getOrderedDefendantsList(caseDetails);
 
-  {console.log(isYouthOffender(), isMultipleDefendantsOrCharges, dacDocumentId);}
+  {
+    console.log(isYouthOffender(), isMultipleDefendantsOrCharges, dacDocumentId);
+  }
 
   return (
     <div class={'keyDetails'} data-testid="key-details">
@@ -70,7 +72,7 @@ export const KeyDetails: React.FC<{
             </h1>
           )}
           <h2 class={`govuk-heading-s ${'uniqueReferenceNumber'}`} data-testid="txt-case-urn">
-            {caseDetails.uniqueReferenceNumber}
+            {caseDetails?.uniqueReferenceNumber}
           </h2>
           {getDOBText() && (
             <h2 class={`govuk-heading-s ${'defendantDOB'}`} data-testid="txt-defendant-DOB">
@@ -78,10 +80,12 @@ export const KeyDetails: React.FC<{
             </h2>
           )}
           {isYouthOffender() && <p>youth offender</p>}
-          {isYouthOffender() && <Tag gdsTagColour="blue"> Youth offender!</Tag>}
+
+          {Tag && isYouthOffender() && <Tag gdsTagColour="blue"> Youth offender!</Tag>}
+          {console.log('keydetails page')}
           {/* {console.log(isYouthOffender(), isMultipleDefendantsOrCharges, dacDocumentId)} */}
           {dacDocumentId && (
-            <button>ffldjlkff</button>
+            <></>
             // <LinkButton
             //   dataTestId="link-defendant-details"
             //   className={'defendantDetailsLink'}
@@ -94,8 +98,7 @@ export const KeyDetails: React.FC<{
             //     defendantsList.length > 1 ? "defendants" : "defendant"
             //   } and charges`} */}
             // </LinkButton>
-          )
-          }
+          )}
         </>
       }
     </div>

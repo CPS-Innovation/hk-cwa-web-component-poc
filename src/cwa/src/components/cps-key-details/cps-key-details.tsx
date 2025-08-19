@@ -1,6 +1,8 @@
+import React from 'react';
+import  ReactDOM  from 'react';
 import { KeyDetails } from '../../app/common/components/keydetails/KeyDetails';
 import { Component, Prop, State, h } from '@stencil/core';
-// import { TestComponent } from '../../app/common/components/keydetails/Test';
+import { TestComponent } from '../../app/common/components/keydetails/Test';
 
 @Component({
   tag: 'cps-key-details',
@@ -12,16 +14,21 @@ import { Component, Prop, State, h } from '@stencil/core';
 export class CPSKeyDetails {
   @Prop() name: string = 'Key Details page';
   @State() times: number = 100;
+  private element: HTMLElement;
+
   constructor() {
-    this.times += 100;
-    console.log('consructor');
+    console.log('constructor');
+  }
+
+  componentDidLoad(){
+    // ReactDOM.render(<KeyDetails/>, this.element);
   }
 
   render() {
     return (
       <div>
         this is {this.name} {this.times} page
-        {/* <TestComponent /> */}
+        <TestComponent />
         <KeyDetails
           // handleOpenPdf={() => {
           //   // handleOpenPdf({

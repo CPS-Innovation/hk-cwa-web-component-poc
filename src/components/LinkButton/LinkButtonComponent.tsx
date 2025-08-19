@@ -1,58 +1,58 @@
-import React, { forwardRef } from "react";
-// import classes from  "./LinkButton.module.scss";
+// import React, { forwardRef } from "react";
+// // import classes from  "./LinkButton.module.scss";
 
-type LinkButtonProps = {
-  id?: string;
-  children: React.ReactNode;
-  className?: string | any;
-  dataTestId?: string | any;
-  disabled?: boolean | any;
-  ariaLabel?: string | any;
-  ariaExpanded?: boolean | any;
-  type?: "button" | "submit" | "reset";
-  onClickFn?: (a: any) => {};
-  onSetColorFn?: () => {} | undefined;
-  onFocus?: () => void;
-  text: string
-};
+// type LinkButtonProps = {
+//   id?: string;
+//   children: React.ReactNode;
+//   className?: string | any;
+//   dataTestId?: string | any;
+//   disabled?: boolean | any;
+//   ariaLabel?: string | any;
+//   ariaExpanded?: boolean | any;
+//   type?: "button" | "submit" | "reset";
+//   onClickFn?: (a: any) => {};
+//   onSetColorFn?: () => {} | undefined;
+//   onFocus?: () => void;
+//   text: string
+// };
 
-export const LinkButtonComponent = forwardRef<HTMLButtonElement | null, LinkButtonProps>(
-  (
-    {
-      children,
-      className,
-      dataTestId,
-      onClickFn,
-      onSetColorFn,
-      onFocus,
-      id,
-      ariaLabel,
-      ariaExpanded,
-      disabled = false,
-      type,
-      text
-    },
-    ref
-  ) => {
-    const resolvedClassName = `linkButton`;
-    const setColorFnValue = onSetColorFn ? onSetColorFn() as unknown : '';
-    return (
-      <button
-        ref={ref}
-        aria-label={ariaLabel}
-        aria-expanded={ariaExpanded}
-        disabled={disabled}
-        id={id}
-        className={resolvedClassName}
-        onClick={()=>alert('fdf')}
-        data-testid={dataTestId}
-        type={type}
-        onFocus={onFocus}
-        // style={'color: setColorFnValue'} 
-      >
-        {/* {setColorFnValue?.toString()} */}
-        {children}
-      </button>
-    );
-  }
-);
+// export const LinkButtonComponent = forwardRef<HTMLButtonElement | null, LinkButtonProps>(
+//   (
+//     {
+//       children,
+//       className,
+//       dataTestId,
+//       onClickFn,
+//       onSetColorFn,
+//       onFocus,
+//       id,
+//       ariaLabel,
+//       ariaExpanded,
+//       disabled = false,
+//       type,
+//       text
+//     },
+//     ref
+//   ) => {
+//     const resolvedClassName = `linkButton`;
+//     const setColorFnValue = onSetColorFn ? onSetColorFn() as unknown : '';
+//     return (
+//       <button
+//         ref={ref}
+//         aria-label={ariaLabel}
+//         aria-expanded={ariaExpanded}
+//         disabled={disabled}
+//         id={id}
+//         className={resolvedClassName}
+//         onClick={()=>alert('fdf')}
+//         data-testid={dataTestId}
+//         type={type}
+//         onFocus={onFocus}
+//         // style={'color: setColorFnValue'} 
+//       >
+//         {/* {setColorFnValue?.toString()} */}
+//         {children}
+//       </button>
+//     );
+//   }
+// );

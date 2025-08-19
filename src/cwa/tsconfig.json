@@ -7,14 +7,14 @@
     "lib": ["dom", "es2022"],
     "moduleResolution": "bundler",
     "module": "esnext",
-    "target": "es2022",
+    "target": "esnext",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",
     "jsxFactory": "h",
     "jsxFragmentFactory": "h.Fragment",
-    "esModuleInterop": true,
-    "skipLibCheck": true
+    "esModuleInterop": false,
+    "skipLibCheck": true,
   },
   "include": ["src"],
   "exclude": ["node_modules"]

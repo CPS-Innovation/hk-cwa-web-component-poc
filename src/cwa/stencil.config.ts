@@ -5,26 +5,21 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { createFilter } from '@rollup/pluginutils';
 
-const faviconFilter = createFilter(null, ['node_modules/govuk-frontend/govuk/assets/images/favicon.ico']);
+// const faviconFilter = createFilter(null, ['node_modules/govuk-frontend/govuk/assets/images/favicon.ico']);
 
 export const config: Config = {
   namespace: 'cwa',
-  rollupPlugins: {
-    before: [
-      commonjs({
-        include: 'node_modules/**',
-        exclude: [`/${faviconFilter}/`]
-      }),
-      image(),
-    ],
-    after: []
-  },
+
   plugins: [
-    
-    
-    // resolve({
-    //   rootDir: '/',
-    // }),
+    commonjs({
+      // include: 'node_modules/**',
+      // exclude: [`/${faviconFilter}/`]
+      requireReturnsDefault: 'auto',
+    }),
+    image(),
+    resolve({
+      // rootDir: '/',
+    }),
     sass({
       quietDeps: true,
       silenceDeprecations: ['import'],
@@ -55,6 +50,10 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
+  nodeResolve: {
+    browser: true,
+    preferBuiltins: true
+  },
   testing: {
     browserHeadless: 'shell',
   },
