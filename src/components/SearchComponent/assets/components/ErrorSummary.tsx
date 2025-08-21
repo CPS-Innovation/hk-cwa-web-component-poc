@@ -1,5 +1,6 @@
 import * as GDS from "govuk-react-jsx";
-import React, { ReactNode } from "react";
+import React from 'react'
+import type{ ReactNode } from "react";
 
 type ErrorSummaryProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,

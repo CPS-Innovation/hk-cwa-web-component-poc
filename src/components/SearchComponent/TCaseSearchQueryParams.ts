@@ -1,3 +1,3 @@
-export type CaseSearchQueryParams = {
+export type TCaseSearchQueryParams = {
   urn: string;
 };
