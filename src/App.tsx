@@ -2,6 +2,7 @@ import "./App.css";
 import "./components/StatusTagComponent/StatusTagComponent";
 import "./components/NotificationBannerComponent/NotificationBannerComponent.tsx";
 import "./components/CaseInfoSummaryComponent/CaseInfoSummaryComponent";
+import "./components/SearchComponent/WebSearchComponent.tsx"
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         header="Success Header"
         content="Success Content"
       />
+
+      <web-search-component />
     </div>
   );
 }

@@ -14,7 +14,9 @@
   },
   "dependencies": {
     "axios": "^1.11.0",
-    "govuk-frontend": "^5.11.0",
+    "govuk_frontend_toolkit": "^9.0.1",
+    "govuk-frontend": "^4.0.1",
+    "govuk-react-jsx": "^7.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-library": "*",
