@@ -1,14 +1,14 @@
 import React from "react";
 // import { useQueryParamsState } from "./assets/useQueryParamsState";
-import type { CaseSearchQueryParams } from "./TCaseSearchQueryParams";
+import type { TCaseSearchQueryParams } from "./TCaseSearchQueryParams";
 import * as GDS from "govuk-react-jsx";
 import { ErrorSummary } from "./assets/components/ErrorSummary";
 import { Hint } from "./assets/components/Hint";
 import { Input } from "./assets/components/Input";
 import { Button } from "./assets/components/Button";
+import "./SearchConponent.scss"
+// import { useSearchInputLogic } from "./assets/useSearchInputLogic.ts";
 
-import { useSearchInputLogic } from "./assets/useSearchInputLogic.ts";
-// import classes from "./assets/components/index.module.scss";
 // import { PageContentWrapper } from "../../../../common/presentation/components";
 // import {
 //   useAppInsightsTrackEvent,
@@ -30,66 +30,58 @@ const SearchComponent: React.FC = () => {
 	// const { handleChange, handleKeyPress, handleSubmit, isError, urn } =
 	// 	useSearchInputLogic({ urnFromSearchParams, setParams, search });
 
-	const handleSearch = (val: string) => {
-		// trackEvent("Search URN", { page: "case-search", searchParameter: urn });
-    // alert(val)
-		// handleSubmit();
-	};
+  const handleChange = (arg: string) => {
+    console.log('handleChange: ', arg)
+  }
+
+  const handleSubmit = () => {
+    console.log('handleSubmit: ')
+  }
+
+  const handleSearch = () => {
+    // trackEvent("Search URN", { page: "case-search", searchParameter: urn });
+    handleSubmit();
+  }; 
 
 	return (
 		// <PageContentWrapper>
-		// <div>WebSearchComponent</div>
-		<div className="govuk-grid-row">
-		  <div className="govuk-grid-column-two-thirds">
-		    {/* {isError && (
-		      <ErrorSummary
-		        errorList={[
-		          {
-		            reactListKey: "1",
-		            children: validationFailMessage,
-		            href: "#urn",
-		            "data-testid": "link-validation-urn",
-		          },
-		        ]}
-		      />
-		    )} */}
+		<div className="removeme">
+			<div className="govuk-grid-row">
+				<div className="govuk-grid-column-two-thirds">
+					<h1 className="govuk-heading-xl">
+						<Hint>Search and review a CPS case in England and Wales</Hint>
+					</h1>
 
-		    <h1 className="govuk-heading-xl">
-		      <Hint>
-		        Search and review a CPS case in England and Wales
-		      </Hint>
-		    </h1>
-
-		    <div className="govuk-form-group">
-		      <Input
-		        id="urn"
-		        name="urn"
-            onChange={()=>alert('f')}
-		        //onChange={()=>handleChange()}
-		        // onKeyPress={handleKeyPress}
-		        value={'urn'}
-		        data-testid="input-search-urn"
-		        // errorMessage={
-		          // isError
-		          //   ? {
-		          //       children: (
-		          //         <span data-testid="input-search-urn-error">
-		          //           {validationFailMessage}
-		          //         </span>
-		          //       ),
-		          //     }
-		          //   : undefined
-		        // }
-		        label={{
-		          className: "govuk-label--s",
-		          children: "Search for a case URN",
-		        }}
-		      />
-		    </div>
-		    <Button onClick={handleSearch} data-testid="button-search">
-		      Search
-		    </Button>
-		  </div>
+					<div className="govuk-form-group">
+						<Input
+							id="urn"
+							name="urn"
+							onChange={handleChange}
+							// onKeyPress={handleKeyPress}
+							// value={""}
+							data-testid="input-search-urn"
+							// errorMessage={
+							// isError
+							//   ? {
+							//       children: (
+							//         <span data-testid="input-search-urn-error">
+							//           {validationFailMessage}
+							//         </span>
+							//       ),
+							//     }
+							//   : undefined
+							// }
+							label={{
+								className: "govuk-label--s",
+								children: "Search for a case URN",
+							}}
+						/>
+					</div>
+					<Button onClick={handleSearch} data-testid="button-search" >
+						?
+					</Button>
+				</div>
+			</div>
 		</div>
 		// </PageContentWrapper>
 	);

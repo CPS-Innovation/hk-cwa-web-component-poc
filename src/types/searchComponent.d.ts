@@ -5,7 +5,7 @@ declare global {
         "web-search-component": React.DetailedHTMLProps<
           React.HTMLAttributes<HTMLElement>,
           HTMLElement
-        > & { };
+        > & { data?: any };
       }
     }
   }

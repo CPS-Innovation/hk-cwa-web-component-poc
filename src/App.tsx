@@ -4,6 +4,8 @@ import "./components/NotificationBannerComponent/NotificationBannerComponent.tsx
 import "./components/CaseInfoSummaryComponent/CaseInfoSummaryComponent";
 import "./components/SearchComponent/WebSearchComponent.tsx"
 
+import "./govuk-frontend.min.css";
+
 function App() {
   return (
     <div className="App">
