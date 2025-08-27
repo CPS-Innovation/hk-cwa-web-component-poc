@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-// import styles from "./CaseInfoSummary.scss?inline";
+import styles from "./SearchConponent.scss?inline";
 import { SearchComponent } from "./SearchConponent";
 
 class WebSearchComponentComponent extends HTMLElement {
@@ -10,7 +10,7 @@ class WebSearchComponentComponent extends HTMLElement {
 		this.attachShadow({ mode: "open" });
 		this._root = ReactDOM.createRoot(this.shadowRoot!);
 		const style = document.createElement("style");
-		// style.textContent = styles;
+		style.textContent = styles;
 		this.shadowRoot!.appendChild(style);
 
 		this._root.render(<SearchComponent />);
@@ -19,7 +19,7 @@ class WebSearchComponentComponent extends HTMLElement {
 
 if (!window.customElements.get("web-earch-component")) {
 	window.customElements.define(
-		"web-search-component",
+		"cps-search-component",
 		WebSearchComponentComponent
 	);
 }

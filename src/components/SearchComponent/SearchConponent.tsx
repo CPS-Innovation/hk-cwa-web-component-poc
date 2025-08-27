@@ -6,7 +6,7 @@ import { ErrorSummary } from "./assets/components/ErrorSummary";
 import { Hint } from "./assets/components/Hint";
 import { Input } from "./assets/components/Input";
 import { Button } from "./assets/components/Button";
-import "./SearchConponent.scss"
+import * as styles from "./SearchConponent.scss?inline";
 // import { useSearchInputLogic } from "./assets/useSearchInputLogic.ts";
 
 // import { PageContentWrapper } from "../../../../common/presentation/components";
@@ -30,57 +30,59 @@ const SearchComponent: React.FC = () => {
 	// const { handleChange, handleKeyPress, handleSubmit, isError, urn } =
 	// 	useSearchInputLogic({ urnFromSearchParams, setParams, search });
 
-  const handleChange = (arg: string) => {
-    console.log('handleChange: ', arg)
-  }
+	const handleChange = (arg: string) => {
+		console.log("handleChange: ", arg);
+	};
 
-  const handleSubmit = () => {
-    console.log('handleSubmit: ')
-  }
+	const handleSubmit = () => {
+		console.log("handleSubmit: ");
+	};
 
-  const handleSearch = () => {
-    // trackEvent("Search URN", { page: "case-search", searchParameter: urn });
-    handleSubmit();
-  }; 
+	const handleKeyPress = () => {
+		console.log("handleKeyPress: ");
+	};
+
+	const handleSearch = () => {
+		// trackEvent("Search URN", { page: "case-search", searchParameter: urn });
+		handleSubmit();
+	};
 
 	return (
 		// <PageContentWrapper>
-		<div className="removeme">
-			<div className="govuk-grid-row">
-				<div className="govuk-grid-column-two-thirds">
-					<h1 className="govuk-heading-xl">
-						<Hint>Search and review a CPS case in England and Wales</Hint>
-					</h1>
+		<div className="govuk-grid-row">
+			<div className="govuk-grid-column-two-thirds">
+				<h1 className="govuk-heading-xl">
+					<Hint>Search and review a CPS case in England and Wales</Hint>
+				</h1>
 
-					<div className="govuk-form-group">
-						<Input
-							id="urn"
-							name="urn"
-							onChange={handleChange}
-							// onKeyPress={handleKeyPress}
-							// value={""}
-							data-testid="input-search-urn"
-							// errorMessage={
-							// isError
-							//   ? {
-							//       children: (
-							//         <span data-testid="input-search-urn-error">
-							//           {validationFailMessage}
-							//         </span>
-							//       ),
-							//     }
-							//   : undefined
-							// }
-							label={{
-								className: "govuk-label--s",
-								children: "Search for a case URN",
-							}}
-						/>
-					</div>
-					<Button onClick={handleSearch} data-testid="button-search" >
-						?
-					</Button>
+				<div className="govuk-form-group">
+					<Input
+						id="urn"
+						name="urn"
+						onChange={handleChange}
+						onKeyPress={handleKeyPress}
+						// value={""}
+						data-testid="input-search-urn"
+						// errorMessage={
+						// isError
+						//   ? {
+						//       children: (
+						//         <span data-testid="input-search-urn-error">
+						//           {validationFailMessage}
+						//         </span>
+						//       ),
+						//     }
+						//   : undefined
+						// }
+						label={{
+							className: "govuk-label--s",
+							children: "Search for a case URN",
+						}}
+					/>
 				</div>
+				<Button onClick={handleSearch} data-testid="button-search">
+					?
+				</Button>
 			</div>
 		</div>
 		// </PageContentWrapper>
