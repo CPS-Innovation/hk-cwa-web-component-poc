@@ -81,7 +81,7 @@ const SearchComponent: React.FC = () => {
 					/>
 				</div>
 				<Button onClick={handleSearch} data-testid="button-search">
-					?
+					Search
 				</Button>
 			</div>
 		</div>

@@ -1,0 +1,67 @@
+$border-color: #b1b4b6; //govuk-colour("green");
+.search {
+  display: flex;
+  align-items: flex-end;
+
+  button {
+    margin-left: 0.3125rem;
+  }
+}
+
+.results {
+  margin-top: 2.5rem;
+}
+
+.filter {
+  border: 0.0625rem solid $border-color;
+
+  :global(.govuk-heading-m) {
+    border-bottom: 0.0625rem solid $border-color;
+    padding: 0.75rem;
+    margin-bottom: 0;
+  }
+
+  & :global(.legend) {
+    padding: 0.625rem;
+    margin-bottom: 0.625rem;
+  }
+
+  :global(.govuk-form-group) {
+    padding: 0 0.625rem;
+  }
+}
+
+.result {
+  margin-top: 1.875rem;
+}
+
+.defendantName {
+  margin: -1rem 0 0.3125rem;
+}
+
+.result-offence + .result-offence {
+  margin-top: 1.5625rem;
+}
+
+.result-offence-line {
+  display: flex;
+  margin-bottom: 0.35rem;
+  :global(.govuk-tag) {
+    font-weight: 400;
+    text-transform: none;
+  }
+  :global(.govuk-tag--blue) {
+    color: #0c2d4a;
+  }
+  span:first-of-type {
+    min-width: 10rem;
+    margin-right: 3rem;
+  }
+}
+
+.urnText {
+  font-weight: bold;
+}
+.chargesText {
+  font-weight: bold;
+}

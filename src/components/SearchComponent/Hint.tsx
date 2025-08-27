@@ -11,7 +11,7 @@ type HintProps = React.DetailedHTMLProps<
 export const Hint: React.FC<HintProps> = ({
   className,
   children,
-  ...attributes
+  ...attributes 
 }) => {
   return (
     <GDS.Hint className="root">
