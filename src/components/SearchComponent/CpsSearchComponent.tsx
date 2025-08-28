@@ -17,7 +17,7 @@ class WebSearchComponentComponent extends HTMLElement {
 	}
 }
 
-if (!window.customElements.get("web-earch-component")) {
+if (!window.customElements.get("cps-search-component")) {
 	window.customElements.define(
 		"cps-search-component",
 		WebSearchComponentComponent

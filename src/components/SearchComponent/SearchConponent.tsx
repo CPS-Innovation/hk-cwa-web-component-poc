@@ -52,8 +52,11 @@ const SearchComponent: React.FC = () => {
 		<div className="govuk-grid-row">
 			<div className="govuk-grid-column-two-thirds">
 				<h1 className="govuk-heading-xl">
-					<Hint>Search and review a CPS case in England and Wales</Hint>
-				</h1>
+            Find a case
+            <Hint className="govuk-hint">
+              Search and review a CPS case in England and Wales
+            </Hint>
+          </h1>
 
 				<div className="govuk-form-group">
 					<Input
