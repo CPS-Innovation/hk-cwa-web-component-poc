@@ -2,10 +2,10 @@ declare global {
   namespace React {
     namespace JSX {
       interface IntrinsicElements {
-        "cps-search-component": React.DetailedHTMLProps<
+        "cps-case-search-results": React.DetailedHTMLProps<
           React.HTMLAttributes<HTMLElement>,
           HTMLElement
-        > & { [x: string]:string };
+        > & { data?: any };
       }
     }
   }

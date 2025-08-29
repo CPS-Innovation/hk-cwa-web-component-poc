@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import styles from "./CaseSearchResults.scss?inline";
-import { Page } from "./CaseSearchResults";
+import { CaseSearchResults } from "./CaseSearchResults";
 
-class CaseSearchResultsComponent extends HTMLElement {
+class WebCaseSearchResultsComponent extends HTMLElement {
 	private _root: ReactDOM.Root;
 
 	constructor() {
@@ -13,14 +13,18 @@ class CaseSearchResultsComponent extends HTMLElement {
 		const style = document.createElement("style");
 		style.textContent = styles;
 		this.shadowRoot!.appendChild(style);
+		this._root.render(<CaseSearchResults />);
+	}
 
-		this._root.render(<Page />);
+	connectedCallback() {
+		if (typeof this.getAttribute("name") !== "undefined")
+			this._root.render(<CaseSearchResults data={this.getAttribute("data")} />);
 	}
 }
 
 if (!window.customElements.get("cps-case-search-results")) {
 	window.customElements.define(
 		"cps-case-search-results",
-		CaseSearchResultsComponent
+		WebCaseSearchResultsComponent
 	);
 }

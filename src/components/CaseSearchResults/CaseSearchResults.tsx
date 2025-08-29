@@ -1,104 +1,105 @@
-// import {
-//   BackLink,
-//   Button,
-//   ErrorSummary,
-//   Hint,
-//   Input,
-//   Tag,
-// } from "../../../../common/presentation/components";
-// import { CaseSearchQueryParams } from "../../types/CaseSearchQueryParams";
-// import { useQueryParamsState } from "../../../../common/hooks/useQueryParamsState";
+// // import {
+// //   BackLink,
+// //   Button,
+// //   ErrorSummary,
+// //   Hint,
+// //   Input,
+// //   Tag,
+// // } from "../../../../common/presentation/components";
+// // import { CaseSearchQueryParams } from "../../types/CaseSearchQueryParams";
+// // import { useQueryParamsState } from "../../../../common/hooks/useQueryParamsState";
 
-// import { useSearchInputLogic } from "../../hooks/useSearchInputLogic";
-// import { generatePath, Link } from "react-router-dom";
-// import { path as casePath } from "../case-details";
-// import {
-//   formatDate,
-//   CommonDateTimeFormats,
-// } from "../../../../common/utils/dates";
-// import { BackLinkingPageProps } from "../../../../common/presentation/types/BackLinkingPageProps";
-// import { PageContentWrapper } from "../../../../common/presentation/components";
-// import { WaitPage } from "../../../../common/presentation/components";
-// import { useApi } from "../../../../common/hooks/useApi";
-// import { searchUrn } from "../../api/gateway-api";
-// import { CaseSearchResult } from "../../domain/gateway/CaseSearchResult";
+// // import { useSearchInputLogic } from "../../hooks/useSearchInputLogic";
+// // import { generatePath, Link } from "react-router-dom";
+// // import { path as casePath } from "../case-details";
+// // import {
+// //   formatDate,
+// //   CommonDateTimeFormats,
+// // } from "../../../../common/utils/dates";
+// // import { BackLinkingPageProps } from "../../../../common/presentation/types/BackLinkingPageProps";
+// // import { PageContentWrapper } from "../../../../common/presentation/components";
+// // import { WaitPage } from "../../../../common/presentation/components";
+// // import { useApi } from "../../../../common/hooks/useApi";
+// // import { searchUrn } from "../../api/gateway-api";
+// // import { CaseSearchResult } from "../../domain/gateway/CaseSearchResult";
 
-// import classes from "./index.module.scss";
-// import { SectionBreak } from "../../../../common/presentation/components";
-// import {
-//   useAppInsightsTrackEvent,
-//   useAppInsightsTrackPageView,
-// } from "../../../../common/hooks/useAppInsightsTracks";
-// export const path = "/case-search-results";
+// // import classes from "./index.module.scss";
+// // import { SectionBreak } from "../../../../common/presentation/components";
+// // import {
+// //   useAppInsightsTrackEvent,
+// //   useAppInsightsTrackPageView,
+// // } from "../../../../common/hooks/useAppInsightsTracks";
+// // export const path = "/case-search-results";
 
-// const validationFailMessage = "Enter a URN in the right format";
+// // const validationFailMessage = "Enter a URN in the right format";
 
-// type Props = BackLinkingPageProps;
+// // type Props = BackLinkingPageProps;
 
-// const Page: React.FC<Props> = ({ backLinkProps }) => {
-//   useAppInsightsTrackPageView("Case Search Result Page");
-//   const trackEvent = useAppInsightsTrackEvent();
+// // const CaseSearchResult: React.FC<Props> = ({ backLinkProps }) => {
+// const CaseSearchResult: React.FC<{}> = ({ }) => {
+//   // useAppInsightsTrackPageView("Case Search Result Page");
+//   // const trackEvent = useAppInsightsTrackEvent();
 
-//   const getDefendantNameText = (item: CaseSearchResult) => {
-//     if (!item.leadDefendantDetails) {
-//       return null;
-//     }
-//     let titleString =
-//       item.leadDefendantDetails.type === "Organisation"
-//         ? item.leadDefendantDetails.organisationName
-//         : `${item.leadDefendantDetails.surname}, ${item.leadDefendantDetails.firstNames}`;
+//   // const getDefendantNameText = (item: CaseSearchResult) => {
+//   //   if (!item.leadDefendantDetails) {
+//   //     return null;
+//   //   }
+//   //   let titleString =
+//   //     item.leadDefendantDetails.type === "Organisation"
+//   //       ? item.leadDefendantDetails.organisationName
+//   //       : `${item.leadDefendantDetails.surname}, ${item.leadDefendantDetails.firstNames}`;
 
-//     if (item.numberOfDefendants > 1) {
-//       titleString = `${titleString} and others`;
-//     }
-//     return titleString;
-//   };
-//   const {
-//     urn: urnFromSearchParams,
-//     setParams,
-//     search,
-//   } = useQueryParamsState<CaseSearchQueryParams>();
+//   //   if (item.numberOfDefendants > 1) {
+//   //     titleString = `${titleString} and others`;
+//   //   }
+//   //   return titleString;
+//   // };
+//   // const {
+//   //   urn: urnFromSearchParams,
+//   //   setParams,
+//   //   search,
+//   // } = useQueryParamsState<CaseSearchQueryParams>();
 
-//   const { handleChange, handleKeyPress, handleSubmit, isError, urn } =
-//     useSearchInputLogic({ urnFromSearchParams, setParams, search });
+//   // const { handleChange, handleKeyPress, handleSubmit, isError, urn } =
+//   //   useSearchInputLogic({ urnFromSearchParams, setParams, search });
 
-//   const linkParams = new URLSearchParams(search);
-//   linkParams.delete("urn");
+//   // const linkParams = new URLSearchParams(search);
+//   // linkParams.delete("urn");
 
-//   const state = useApi(searchUrn, [urnFromSearchParams])!;
+//   // const state = useApi(searchUrn, [urnFromSearchParams])!;
 
-//   if (state.status === "loading" || state.status === "initial") {
-//     return <WaitPage />;
-//   }
+//   // if (state.status === "loading" || state.status === "initial") {
+//   //   return <WaitPage />;
+//   // }
 
-//   if (state.status === "failed") {
-//     throw state.error;
-//   }
+//   // if (state.status === "failed") {
+//   //   throw state.error;
+//   // }
 
-//   const { data } = state;
+//   // const { data } = state;
 
-//   const handleSearch = () => {
-//     trackEvent("Search URN", {
-//       page: "case-search-results",
-//       searchParameter: urn,
-//     });
-//     handleSubmit();
-//   };
+//   // const handleSearch = () => {
+//   //   trackEvent("Search URN", {
+//   //     page: "case-search-results",
+//   //     searchParameter: urn,
+//   //   });
+//   //   handleSubmit();
+//   // };
 
 //   return (
 //     <>
-//       <nav>
+//       {/* <nav>
 //         <BackLink
 //           to={backLinkProps.to}
 //           onClick={() => trackEvent("Back To Search URN")}
 //         >
 //           {backLinkProps.label}
 //         </BackLink>
-//       </nav>
-//       <PageContentWrapper>
+//       </nav> */}
+//       {/* <PageContentWrapper> */}
 //         <div className="govuk-grid-row">
 //           <div className="govuk-grid-column-two-thirds">
-//             {isError && (
+//             {/* {isError && (
 //               <ErrorSummary
 //                 errorList={[
 //                   {
@@ -109,7 +110,7 @@
 //                   },
 //                 ]}
 //               />
-//             )}
+//             )} */}
 //             <h1 className="govuk-heading-xl">Find a case</h1>
 
 //             <div className={classes.search}>
@@ -120,17 +121,17 @@
 //                 onKeyPress={handleKeyPress}
 //                 value={urn}
 //                 data-testid="input-search-urn"
-//                 errorMessage={
-//                   isError
-//                     ? {
-//                         children: (
-//                           <span data-testid="input-search-urn-error">
-//                             {validationFailMessage}
-//                           </span>
-//                         ),
-//                       }
-//                     : undefined
-//                 }
+//                 // errorMessage={
+//                 //   isError
+//                 //     ? {
+//                 //         children: (
+//                 //           <span data-testid="input-search-urn-error">
+//                 //             {validationFailMessage}
+//                 //           </span>
+//                 //         ),
+//                 //       }
+//                 //     : undefined
+//                 // }
 //                 label={{
 //                   className: "govuk-label--s",
 //                   children: "Search for a case URN",
@@ -250,16 +251,25 @@
 //             </div>
 //           </div>
 //         </div>
-//       </PageContentWrapper>
+//       {/* </PageContentWrapper> */}
 //     </>
 //   );
 // };
 
-// export default Page;
+// export {CaseSearchResult};
 
-const Page = () => {
-	console.log("case-search-results");
-	return <div style={{color: 'black'}}>Case Search Results Component</div>;
+import React, { useContext } from "react";
+import { ContextCWA } from "../Context/ContextCWA";
+
+const CaseSearchResults = (props: any) => {
+	const value = useContext(ContextCWA) as string;
+	// console.log("case-search-results, data: ", value, ", prop ", props.data);
+
+	return (
+		<div style={{ color: "black" }}>
+			{`Case Search Results Component: via context ${value?.data} , via prop ${props.data}`}
+		</div>
+	);
 };
 
-export { Page };
+export { CaseSearchResults };
