@@ -262,24 +262,25 @@
 
 // export { CaseSearchResults };
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ContextCWA } from "../Context/ContextCWA";
 
 const CaseSearchResults = (props: any) => {
 	const value = useContext(ContextCWA) as string;
+	const [urn, setUrn] = useState<string>("");
 
-	const data = [1, 5, 10];	
+	const URNS_LIST = ["01LX1000921", "42MZ7213221", "12AB1111111"];
 
-document.addEventListener('handleCustomEvent', (e: any) => {
-	console.log('hallo from case search results: ', e?.detail);
-});
+	document.addEventListener("handleCustomEvent", (e: any):void => {
+		setUrn(e?.detail);
+	});
 
-	const res = (arg: number) => data.find((a) => a === arg);
-	console.log("res ", res(+props.data));	
+	// const res = () => URNS_LIST.find((a) => a.toString() === r.toString());
+	// console.log("res ", res());
 
 	return (
 		<div style={{ color: "black" }}>
-			{`Case Search Results Component - via context: ${value?.data} , via prop: ${props.data}`}
+			{`Case Search Results Component - via context: ${value?.data} , via prop: ${props.data}, URN: ${urn}`}
 		</div>
 	);
 };

@@ -40,7 +40,7 @@ const inputRef = useRef<HTMLInputElement>(null);
 	};
 
 	const handleSubmit = () => {
-		console.log("handleSubmit: ");
+		console.log("handleSubmit: ", inputRef.current?.value);
 		document.dispatchEvent(onCustomEventHandler(inputRef.current?.value));
 	};
 
