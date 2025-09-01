@@ -33,7 +33,7 @@ function App() {
 
 					<cps-search-component />
 					<cps-case-search-results data={data}/>
-					<CaseSearchResults />
+					{/* <CaseSearchResults /> */}
 				</>
 			</ContextCWA.Provider>
 		</div>

@@ -11,14 +11,14 @@ export const useCaseInfoSummary = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios<CaseInfoType>({
-        url: 'https://localhost:7104/api/case-info',
-        method: 'get',
-        withCredentials: true,
-      });
+      // const response = await axios<CaseInfoType>({
+      //   url: 'https://localhost:7104/api/case-info',
+      //   method: 'get',
+      //   withCredentials: true,
+      // });
 
-      setData(response?.data);
-      setIsLoading(false);
+      // setData(response?.data);
+      // setIsLoading(false);
     } catch (error) {
       console.log({ hookError: error });
       setIsLoading(false);

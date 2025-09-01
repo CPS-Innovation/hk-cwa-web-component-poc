@@ -17,7 +17,7 @@ class WebCaseSearchResultsComponent extends HTMLElement {
 	}
 
 	connectedCallback() {
-		if (typeof this.getAttribute("name") !== "undefined")
+		if (typeof this.getAttribute("data") !== "undefined")
 			this._root.render(<CaseSearchResults data={this.getAttribute("data")} />);
 	}
 }

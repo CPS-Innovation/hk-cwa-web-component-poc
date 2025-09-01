@@ -6,11 +6,15 @@
 // //   Input,
 // //   Tag,
 // // } from "../../../../common/presentation/components";
+// import { Hint } from "../SearchComponent/assets/components/Hint";
+// import { Input } from "../SearchComponent/assets/components/Input";
+// import { Button } from "../SearchComponent/assets/components/Button";
+
 // // import { CaseSearchQueryParams } from "../../types/CaseSearchQueryParams";
 // // import { useQueryParamsState } from "../../../../common/hooks/useQueryParamsState";
 
 // // import { useSearchInputLogic } from "../../hooks/useSearchInputLogic";
-// // import { generatePath, Link } from "react-router-dom";
+// import { generatePath, Link } from "react-router-dom";
 // // import { path as casePath } from "../case-details";
 // // import {
 // //   formatDate,
@@ -36,238 +40,246 @@
 // // type Props = BackLinkingPageProps;
 
 // // const CaseSearchResult: React.FC<Props> = ({ backLinkProps }) => {
-// const CaseSearchResult: React.FC<{}> = ({ }) => {
-//   // useAppInsightsTrackPageView("Case Search Result Page");
-//   // const trackEvent = useAppInsightsTrackEvent();
+// const CaseSearchResults = () => {
+// 	// useAppInsightsTrackPageView("Case Search Result Page");
+// 	// const trackEvent = useAppInsightsTrackEvent();
 
-//   // const getDefendantNameText = (item: CaseSearchResult) => {
-//   //   if (!item.leadDefendantDetails) {
-//   //     return null;
-//   //   }
-//   //   let titleString =
-//   //     item.leadDefendantDetails.type === "Organisation"
-//   //       ? item.leadDefendantDetails.organisationName
-//   //       : `${item.leadDefendantDetails.surname}, ${item.leadDefendantDetails.firstNames}`;
+// 	// const getDefendantNameText = (item: CaseSearchResult) => {
+// 	//   if (!item.leadDefendantDetails) {
+// 	//     return null;
+// 	//   }
+// 	//   let titleString =
+// 	//     item.leadDefendantDetails.type === "Organisation"
+// 	//       ? item.leadDefendantDetails.organisationName
+// 	//       : `${item.leadDefendantDetails.surname}, ${item.leadDefendantDetails.firstNames}`;
 
-//   //   if (item.numberOfDefendants > 1) {
-//   //     titleString = `${titleString} and others`;
-//   //   }
-//   //   return titleString;
-//   // };
-//   // const {
-//   //   urn: urnFromSearchParams,
-//   //   setParams,
-//   //   search,
-//   // } = useQueryParamsState<CaseSearchQueryParams>();
+// 	//   if (item.numberOfDefendants > 1) {
+// 	//     titleString = `${titleString} and others`;
+// 	//   }
+// 	//   return titleString;
+// 	// };
+// 	// const {
+// 	//   urn: urnFromSearchParams,
+// 	//   setParams,
+// 	//   search,
+// 	// } = useQueryParamsState<CaseSearchQueryParams>();
 
-//   // const { handleChange, handleKeyPress, handleSubmit, isError, urn } =
-//   //   useSearchInputLogic({ urnFromSearchParams, setParams, search });
+// 	// const { handleChange, handleKeyPress, handleSubmit, isError, urn } =
+// 	//   useSearchInputLogic({ urnFromSearchParams, setParams, search });
 
-//   // const linkParams = new URLSearchParams(search);
-//   // linkParams.delete("urn");
+// 	// const linkParams = new URLSearchParams(search);
+// 	// linkParams.delete("urn");
 
-//   // const state = useApi(searchUrn, [urnFromSearchParams])!;
+// 	// const state = useApi(searchUrn, [urnFromSearchParams])!;
 
-//   // if (state.status === "loading" || state.status === "initial") {
-//   //   return <WaitPage />;
-//   // }
+// 	// if (state.status === "loading" || state.status === "initial") {
+// 	//   return <WaitPage />;
+// 	// }
 
-//   // if (state.status === "failed") {
-//   //   throw state.error;
-//   // }
+// 	// if (state.status === "failed") {
+// 	//   throw state.error;
+// 	// }
 
-//   // const { data } = state;
+// 	// const { data } = state;
+// 	const { data } = { data: [] as any[] };
 
-//   // const handleSearch = () => {
-//   //   trackEvent("Search URN", {
-//   //     page: "case-search-results",
-//   //     searchParameter: urn,
-//   //   });
-//   //   handleSubmit();
-//   // };
+// 	// const handleSearch = () => {
+// 	//   trackEvent("Search URN", {
+// 	//     page: "case-search-results",
+// 	//     searchParameter: urn,
+// 	//   });
+// 	//   handleSubmit();
+// 	// };
 
-//   return (
-//     <>
-//       {/* <nav>
-//         <BackLink
-//           to={backLinkProps.to}
-//           onClick={() => trackEvent("Back To Search URN")}
-//         >
-//           {backLinkProps.label}
-//         </BackLink>
-//       </nav> */}
-//       {/* <PageContentWrapper> */}
-//         <div className="govuk-grid-row">
-//           <div className="govuk-grid-column-two-thirds">
-//             {/* {isError && (
-//               <ErrorSummary
-//                 errorList={[
-//                   {
-//                     reactListKey: "1",
-//                     children: validationFailMessage,
-//                     href: "#urn",
-//                     "data-testid": "link-validation-urn",
-//                   },
-//                 ]}
-//               />
-//             )} */}
-//             <h1 className="govuk-heading-xl">Find a case</h1>
+// 	// remove this method after testing
+// 	//start here
+// 	const handleChange = (arg: string) => {
+// 		console.log("handleChange: ", arg);
+// 	};
 
-//             <div className={classes.search}>
-//               <Input
-//                 id="urn"
-//                 name="urn"
-//                 onChange={handleChange}
-//                 onKeyPress={handleKeyPress}
-//                 value={urn}
-//                 data-testid="input-search-urn"
-//                 // errorMessage={
-//                 //   isError
-//                 //     ? {
-//                 //         children: (
-//                 //           <span data-testid="input-search-urn-error">
-//                 //             {validationFailMessage}
-//                 //           </span>
-//                 //         ),
-//                 //       }
-//                 //     : undefined
-//                 // }
-//                 label={{
-//                   className: "govuk-label--s",
-//                   children: "Search for a case URN",
-//                 }}
-//                 formGroup={{
-//                   className: "govuk-!-width-full",
-//                 }}
-//               />
-//               <Button onClick={handleSearch} data-testid="button-search">
-//                 Search
-//               </Button>
-//             </div>
+// 	const handleSubmit = () => {
+// 		console.log("handleSubmit: ");
+// 	};
 
-//             <div className={classes.results}>
-//               <p>
-//                 We've found <b data-testid="txt-result-count">{data.length}</b>
-//                 {data.length !== 1
-//                   ? " cases that match "
-//                   : " case that matches "}
-//                 <span data-testid="txt-result-urn" className={classes.urnText}>
-//                   {urnFromSearchParams}
-//                 </span>
-//               </p>
+// 	const handleKeyPress = () => {
+// 		console.log("handleKeyPress: ");
+// 	};
 
-//               <SectionBreak />
+// 	const handleSearch = () => {
+// 		// trackEvent("Search URN", { page: "case-search", searchParameter: urn });
+// 		handleSubmit();
+// 	};
+// 	// end here
 
-//               {data.map((item, index) => (
-//                 <div key={item.id} className={classes.result}>
-//                   <h2 className="govuk-heading-m ">
-//                     <Link
-//                       onClick={() => {
-//                         trackEvent("Open Case", {
-//                           linkClicked: item.uniqueReferenceNumber,
-//                         });
-//                       }}
-//                       to={{
-//                         pathname: generatePath(casePath, {
-//                           urn: urnFromSearchParams,
-//                           id: `${item.id}`,
-//                           hkDocumentId: undefined,
-//                         }),
-//                         state: search,
-//                         search: `${linkParams}`,
-//                       }}
-//                       data-testid={`link-${item.uniqueReferenceNumber}`}
-//                       className="govuk-link"
-//                     >
-//                       {item.uniqueReferenceNumber}
-//                     </Link>
-//                   </h2>
-//                   {item.leadDefendantDetails && (
-//                     <Hint className={classes.defendantName}>
-//                       <span data-testid={`defendant-name-text-${index}`}>
-//                         {getDefendantNameText(item)}
-//                       </span>
-//                       <br />
-//                       {item.leadDefendantDetails.type !== "Organisation" && (
-//                         <span data-testid={`defendant-DOB-${index}`}>
-//                           Date of birth:{" "}
-//                           {formatDate(
-//                             item.leadDefendantDetails.dob,
-//                             CommonDateTimeFormats.ShortDateFullTextMonth
-//                           )}
-//                         </span>
-//                       )}
-//                     </Hint>
-//                   )}
+// 	return (
 
-//                   <div>
-//                     <div className={classes["result-offence"]}>
-//                       <div className={classes["result-offence-line"]}>
-//                         <span>Status:</span>
-//                         <span>
-//                           {item.isCaseCharged ? (
-//                             <Tag gdsTagColour="blue"> Charged</Tag>
-//                           ) : (
-//                             <Tag gdsTagColour="yellow">Not yet charged</Tag>
-//                           )}
-//                         </span>
-//                       </div>
-//                       {item.isCaseCharged &&
-//                       item.headlineCharge.nextHearingDate ? (
-//                         <div className={classes["result-offence-line"]}>
-//                           <span>Court hearing:</span>
-//                           <span>
-//                             {formatDate(
-//                               item.headlineCharge.nextHearingDate,
-//                               CommonDateTimeFormats.ShortDateFullTextMonth
-//                             )}
-//                           </span>
-//                         </div>
-//                       ) : null}
-//                       {item.headlineCharge.date ? (
-//                         <div className={classes["result-offence-line"]}>
-//                           <span>Date of offence:</span>
-//                           <span>
-//                             {formatDate(
-//                               item.headlineCharge.date,
-//                               CommonDateTimeFormats.ShortDateFullTextMonth
-//                             )}
-//                           </span>
-//                         </div>
-//                       ) : null}
-//                       <div className={classes["result-offence-line"]}>
-//                         <span>
-//                           {item.isCaseCharged ? "Charges:" : "Proposed:"}
-//                         </span>
-//                         <span className={classes.chargesText}>
-//                           {item.headlineCharge.charge || "N/A"}
-//                         </span>
-//                       </div>
-//                     </div>
-//                   </div>
-//                   {index < data.length - 1 && <SectionBreak />}
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       {/* </PageContentWrapper> */}
-//     </>
-//   );
-// };
+// 			<div className="govuk-grid-row">
+// 				<div className="govuk-grid-column-two-thirds">
 
-// export {CaseSearchResult};
+// 					<h1 className="govuk-heading-xl">Find a case</h1>
+
+// 					<div className={"classes.search"}>
+// 					<div className="">
+// 						<Input
+// 							id="urn"
+// 							name="urn"
+// 							onChange={handleChange}
+// 							onKeyPress={handleKeyPress}
+// 							value={""}
+// 							value={"urn"}
+// 							data-testid="input-search-urn"
+// 							// errorMessage={
+// 							//   isError
+// 							//     ? {
+// 							//         children: (
+// 							//           <span data-testid="input-search-urn-error">
+// 							//             {validationFailMessage}
+// 							//           </span>
+// 							//         ),
+// 							//       }
+// 							//     : undefined
+// 							// }
+// 							label={{
+// 								className: "govuk-label--s",
+// 								children: "Search for a case URN",
+// 							}}
+// 							formGroup={{
+// 								className: "govuk-!-width-full",
+// 							}}
+// 						/>
+// 						<Button onClick={handleSearch} data-testid="button-search">
+// 							Search
+// 						</Button>
+// 					</div>
+
+// 					<div className={"results"}>
+// 						<p>
+// 							We've found <b data-testid="txt-result-count">{data.length}</b>
+// 							{data.length !== 1 ? " cases that match " : " case that matches "}
+// 							{/* <span data-testid="txt-result-urn" className={classes.urnText}>
+// 								{urnFromSearchParams}
+// 							</span> */}
+// 						</p>
+
+// 						{/* <SectionBreak /> */}
+
+// 						{/* {data.map((item, index) => (
+// 							<div key={item.id} className={"classes.result"}>
+// 								<h2 className="govuk-heading-m ">
+// 									<Link
+// 										onClick={() => {
+// 											trackEvent("Open Case", {
+// 												linkClicked: item.uniqueReferenceNumber,
+// 											});
+// 										}}
+// 										to={{
+// 											pathname: generatePath(casePath, {
+// 												urn: urnFromSearchParams,
+// 												id: `${item.id}`,
+// 												hkDocumentId: undefined,
+// 											}),
+// 											state: search,
+// 											search: `${linkParams}`,
+// 										}}
+// 										data-testid={`link-${item.uniqueReferenceNumber}`}
+// 										className="govuk-link"
+// 									>
+// 										{item.uniqueReferenceNumber}
+// 									</Link>
+// 								</h2>
+// 								{item.leadDefendantDetails && (
+// 									<Hint className={"classes.defendantName"}>
+// 										<span data-testid={`defendant-name-text-${index}`}>
+// 											{getDefendantNameText(item)}
+// 										</span>
+// 										<br />
+// 										{item.leadDefendantDetails.type !== "Organisation" && (
+// 											<span data-testid={`defendant-DOB-${index}`}>
+// 												Date of birth:{" "}
+// 												{formatDate(
+// 													item.leadDefendantDetails.dob,
+// 													CommonDateTimeFormats.ShortDateFullTextMonth
+// 												)}
+// 											</span>
+// 										)}
+// 									</Hint>
+// 								)}
+
+// 								<div>
+// 									<div className={"classes['result-offence']"}>
+// 										<div className={"classes['result-offence-line']"}>
+// 											<span>Status:</span>
+// 											<span>
+// 												{item.isCaseCharged ? (
+// 													<Tag gdsTagColour="blue"> Charged</Tag>
+// 												) : (
+// 													<Tag gdsTagColour="yellow">Not yet charged</Tag>
+// 												)}
+// 											</span>
+// 										</div>
+// 										{item.isCaseCharged &&
+// 										item.headlineCharge.nextHearingDate ? (
+// 											<div className={'classes["result-offence-line"]'}>
+// 												<span>Court hearing:</span>
+// 												<span>
+// 													{formatDate(
+// 														item.headlineCharge.nextHearingDate,
+// 														CommonDateTimeFormats.ShortDateFullTextMonth
+// 													)}
+// 												</span>
+// 											</div>
+// 										) : null}
+// 										{item.headlineCharge.date ? (
+// 											<div className={'classes["result-offence-line"]'}>
+// 												<span>Date of offence:</span>
+// 												<span>
+// 													{formatDate(
+// 														item.headlineCharge.date,
+// 														CommonDateTimeFormats.ShortDateFullTextMonth
+// 													)}
+// 												</span>
+// 											</div>
+// 										) : null}
+// 										<div className={'classes["result-offence-line"]'}>
+// 											<span>
+// 												{'item.isCaseCharged ? "Charges:" : "Proposed:"'}
+// 											</span>
+// 											<span className={'classes.chargesText'}>
+// 												{item.headlineCharge.charge || "N/A"}
+// 											</span>
+// 										</div>
+// 									</div>
+// 								</div>
+// 								{index < data.length - 1 && <SectionBreak />}
+// 							</div>
+// 						))} */}
+// 					</div>
+// 				</div>
+// 				</div>
+// 			</div>
+// 	)
+// 	}
+
+// export { CaseSearchResults };
 
 import React, { useContext } from "react";
 import { ContextCWA } from "../Context/ContextCWA";
 
 const CaseSearchResults = (props: any) => {
 	const value = useContext(ContextCWA) as string;
-	// console.log("case-search-results, data: ", value, ", prop ", props.data);
+
+	const data = [1, 5, 10];	
+
+document.addEventListener('handleCustomEvent', (e: any) => {
+	console.log('hallo from case search results: ', e?.detail);
+});
+
+	const res = (arg: number) => data.find((a) => a === arg);
+	console.log("res ", res(+props.data));	
 
 	return (
 		<div style={{ color: "black" }}>
-			{`Case Search Results Component: via context ${value?.data} , via prop ${props.data}`}
+			{`Case Search Results Component - via context: ${value?.data} , via prop: ${props.data}`}
 		</div>
 	);
 };

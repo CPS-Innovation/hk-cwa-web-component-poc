@@ -7,6 +7,7 @@ import { Hint } from "./assets/components/Hint";
 import { Input } from "./assets/components/Input";
 import { Button } from "./assets/components/Button";
 import * as styles from "./SearchConponent.scss?inline";
+import { useRef } from "react";
 // import { useSearchInputLogic } from "./assets/useSearchInputLogic.ts";
 
 // import { PageContentWrapper } from "../../../../common/presentation/components";
@@ -18,9 +19,13 @@ export const path = "/case-search";
 
 const validationFailMessage = "Enter a URN in the right format";
 
-const SearchComponent: React.FC = () => {
+const SearchComponent = (props: any) => {
+const inputRef = useRef<HTMLInputElement>(null);
+
+	const onCustomEventHandler = (e: any) => new CustomEvent("handleCustomEvent", { detail: e });
+
 	// // useAppInsightsTrackPageView("Case Search Page");
-	// // const trackEvent = useAppInsightsTrackEvent();
+	// // const trackEvent = useAppInsightsTrackEvent();	
 	// const {
 	// 	urn: urnFromSearchParams,
 	// 	setParams,
@@ -36,6 +41,7 @@ const SearchComponent: React.FC = () => {
 
 	const handleSubmit = () => {
 		console.log("handleSubmit: ");
+		document.dispatchEvent(onCustomEventHandler(inputRef.current?.value));
 	};
 
 	const handleKeyPress = () => {
@@ -52,11 +58,11 @@ const SearchComponent: React.FC = () => {
 		<div className="govuk-grid-row">
 			<div className="govuk-grid-column-two-thirds">
 				<h1 className="govuk-heading-xl">
-            Find a case
-            <Hint className="govuk-hint">
-              Search and review a CPS case in England and Wales
-            </Hint>
-          </h1>
+					Find a case
+					<Hint className="govuk-hint">
+						Search and review a CPS case in England and Wales
+					</Hint>
+				</h1>
 
 				<div className="govuk-form-group">
 					<Input
@@ -64,6 +70,7 @@ const SearchComponent: React.FC = () => {
 						name="urn"
 						onChange={handleChange}
 						onKeyPress={handleKeyPress}
+						ref={inputRef}
 						// value={""}
 						data-testid="input-search-urn"
 						// errorMessage={
