@@ -2,7 +2,7 @@
 // //   BackLink,
 // //   Button,
 // //   ErrorSummary,
-// //   Hint,
+// //   hint,
 // //   Input,
 // //   Tag,
 // // } from "../../../../common/presentation/components";
@@ -33,7 +33,7 @@
 // //   useAppInsightsTrackEvent,
 // //   useAppInsightsTrackPageView,
 // // } from "../../../../common/hooks/useAppInsightsTracks";
-// // export const path = "/case-search-results";
+// export const path = "/case-search-results";
 
 // // const validationFailMessage = "Enter a URN in the right format";
 
@@ -81,15 +81,15 @@
 // 	// }
 
 // 	// const { data } = state;
-// 	const { data } = { data: [] as any[] };
+// 	const data =  ["01LX1000921", "42MZ7213221", "12AB1111111"];
 
-// 	// const handleSearch = () => {
-// 	//   trackEvent("Search URN", {
-// 	//     page: "case-search-results",
-// 	//     searchParameter: urn,
-// 	//   });
-// 	//   handleSubmit();
-// 	// };
+// 	const handleSearch = () => {
+// 	  // trackEvent("Search URN", {
+// 	  //   page: "case-search-results",
+// 	  //   searchParameter: urn,
+// 	  // });
+// 	  handleSubmit();
+// 	};
 
 // 	// remove this method after testing
 // 	//start here
@@ -105,156 +105,13 @@
 // 		console.log("handleKeyPress: ");
 // 	};
 
-// 	const handleSearch = () => {
-// 		// trackEvent("Search URN", { page: "case-search", searchParameter: urn });
-// 		handleSubmit();
-// 	};
 // 	// end here
 
 // 	return (
 
 // 			<div className="govuk-grid-row">
 // 				<div className="govuk-grid-column-two-thirds">
-
-// 					<h1 className="govuk-heading-xl">Find a case</h1>
-
-// 					<div className={"classes.search"}>
-// 					<div className="">
-// 						<Input
-// 							id="urn"
-// 							name="urn"
-// 							onChange={handleChange}
-// 							onKeyPress={handleKeyPress}
-// 							value={""}
-// 							value={"urn"}
-// 							data-testid="input-search-urn"
-// 							// errorMessage={
-// 							//   isError
-// 							//     ? {
-// 							//         children: (
-// 							//           <span data-testid="input-search-urn-error">
-// 							//             {validationFailMessage}
-// 							//           </span>
-// 							//         ),
-// 							//       }
-// 							//     : undefined
-// 							// }
-// 							label={{
-// 								className: "govuk-label--s",
-// 								children: "Search for a case URN",
-// 							}}
-// 							formGroup={{
-// 								className: "govuk-!-width-full",
-// 							}}
-// 						/>
-// 						<Button onClick={handleSearch} data-testid="button-search">
-// 							Search
-// 						</Button>
-// 					</div>
-
-// 					<div className={"results"}>
-// 						<p>
-// 							We've found <b data-testid="txt-result-count">{data.length}</b>
-// 							{data.length !== 1 ? " cases that match " : " case that matches "}
-// 							{/* <span data-testid="txt-result-urn" className={classes.urnText}>
-// 								{urnFromSearchParams}
-// 							</span> */}
-// 						</p>
-
-// 						{/* <SectionBreak /> */}
-
-// 						{/* {data.map((item, index) => (
-// 							<div key={item.id} className={"classes.result"}>
-// 								<h2 className="govuk-heading-m ">
-// 									<Link
-// 										onClick={() => {
-// 											trackEvent("Open Case", {
-// 												linkClicked: item.uniqueReferenceNumber,
-// 											});
-// 										}}
-// 										to={{
-// 											pathname: generatePath(casePath, {
-// 												urn: urnFromSearchParams,
-// 												id: `${item.id}`,
-// 												hkDocumentId: undefined,
-// 											}),
-// 											state: search,
-// 											search: `${linkParams}`,
-// 										}}
-// 										data-testid={`link-${item.uniqueReferenceNumber}`}
-// 										className="govuk-link"
-// 									>
-// 										{item.uniqueReferenceNumber}
-// 									</Link>
-// 								</h2>
-// 								{item.leadDefendantDetails && (
-// 									<Hint className={"classes.defendantName"}>
-// 										<span data-testid={`defendant-name-text-${index}`}>
-// 											{getDefendantNameText(item)}
-// 										</span>
-// 										<br />
-// 										{item.leadDefendantDetails.type !== "Organisation" && (
-// 											<span data-testid={`defendant-DOB-${index}`}>
-// 												Date of birth:{" "}
-// 												{formatDate(
-// 													item.leadDefendantDetails.dob,
-// 													CommonDateTimeFormats.ShortDateFullTextMonth
-// 												)}
-// 											</span>
-// 										)}
-// 									</Hint>
-// 								)}
-
-// 								<div>
-// 									<div className={"classes['result-offence']"}>
-// 										<div className={"classes['result-offence-line']"}>
-// 											<span>Status:</span>
-// 											<span>
-// 												{item.isCaseCharged ? (
-// 													<Tag gdsTagColour="blue"> Charged</Tag>
-// 												) : (
-// 													<Tag gdsTagColour="yellow">Not yet charged</Tag>
-// 												)}
-// 											</span>
-// 										</div>
-// 										{item.isCaseCharged &&
-// 										item.headlineCharge.nextHearingDate ? (
-// 											<div className={'classes["result-offence-line"]'}>
-// 												<span>Court hearing:</span>
-// 												<span>
-// 													{formatDate(
-// 														item.headlineCharge.nextHearingDate,
-// 														CommonDateTimeFormats.ShortDateFullTextMonth
-// 													)}
-// 												</span>
-// 											</div>
-// 										) : null}
-// 										{item.headlineCharge.date ? (
-// 											<div className={'classes["result-offence-line"]'}>
-// 												<span>Date of offence:</span>
-// 												<span>
-// 													{formatDate(
-// 														item.headlineCharge.date,
-// 														CommonDateTimeFormats.ShortDateFullTextMonth
-// 													)}
-// 												</span>
-// 											</div>
-// 										) : null}
-// 										<div className={'classes["result-offence-line"]'}>
-// 											<span>
-// 												{'item.isCaseCharged ? "Charges:" : "Proposed:"'}
-// 											</span>
-// 											<span className={'classes.chargesText'}>
-// 												{item.headlineCharge.charge || "N/A"}
-// 											</span>
-// 										</div>
-// 									</div>
-// 								</div>
-// 								{index < data.length - 1 && <SectionBreak />}
-// 							</div>
-// 						))} */}
-// 					</div>
-// 				</div>
+// fdfhgd
 // 				</div>
 // 			</div>
 // 	)
@@ -262,25 +119,44 @@
 
 // export { CaseSearchResults };
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ContextCWA } from "../Context/ContextCWA";
 
-const CaseSearchResults = (props: any) => {
+const CaseSearchResults = ({ data }: any) => {
 	const value = useContext(ContextCWA) as string;
+	const objData = JSON.parse(data);
 	const [urn, setUrn] = useState<string>("");
+	const [res, setRes] = useState<any>();
 
-	const URNS_LIST = ["01LX1000921", "42MZ7213221", "12AB1111111"];
-
-	document.addEventListener("handleCustomEvent", (e: any):void => {
+	document.addEventListener("handleCustomEvent", (e: any): void => {
+		console.log("Custom event received in CaseSearchResults: ", e?.detail);
 		setUrn(e?.detail);
 	});
 
-	// const res = () => URNS_LIST.find((a) => a.toString() === r.toString());
-	// console.log("res ", res());
+	useEffect(() => {
+		const res = () => {
+			let r = objData.find(
+				(el: any) => el.uniqueReferenceNumber.toString() === urn?.toString()
+			);
+			console.log("r ", r);
+			r  = r ? JSON.stringify(r) : "No case found";
+			setRes(r);
+
+		};
+		res();
+		// console.log("res ", res());
+	}, [urn]);
 
 	return (
-		<div style={{ color: "black" }}>
-			{`Case Search Results Component - via context: ${value?.data} , via prop: ${props.data}, URN: ${urn}`}
+
+		<div style={{ color: "#000" }}>
+			{objData.map((item: any, index: number) => (
+				<p key={index}>
+					{item.leadDefendantDetails.firstNames},
+					{item.leadDefendantDetails.surname} urn: {urn} res: {res}
+				</p>
+			))}
+			{/* {`Case Search Results Component via prop: ${data}, URN: ${urn}`} */}
 		</div>
 	);
 };
