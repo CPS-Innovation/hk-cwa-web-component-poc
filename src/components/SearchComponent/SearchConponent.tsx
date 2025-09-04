@@ -94,6 +94,7 @@ const inputRef = useRef<HTMLInputElement>(null);
 					Search
 				</Button>
 			</div>
+			
 		</div>
 		// </PageContentWrapper>
 	);

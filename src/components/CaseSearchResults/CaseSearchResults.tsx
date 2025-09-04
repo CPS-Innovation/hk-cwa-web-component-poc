@@ -139,21 +139,18 @@ const CaseSearchResults = ({ data }: any) => {
 				(el: any) => el.uniqueReferenceNumber.toString() === urn?.toString()
 			);
 			console.log("r ", r);
-			r  = r ? JSON.stringify(r) : "No case found";
+			r = r ? JSON.stringify(r) : "No case found";
 			setRes(r);
-
 		};
 		res();
 		// console.log("res ", res());
 	}, [urn]);
 
 	return (
-
 		<div style={{ color: "#000" }}>
 			{objData.map((item: any, index: number) => (
 				<p key={index}>
-					{item.leadDefendantDetails.firstNames},
-					{item.leadDefendantDetails.surname} urn: {urn} res: {res}
+					urn: {urn} res: {res}
 				</p>
 			))}
 			{/* {`Case Search Results Component via prop: ${data}, URN: ${urn}`} */}
